@@ -1,0 +1,79 @@
+﻿@model IEnumerable<C200_Official.Models.Supplement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Full Supplements</h1>
+
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
+     <a asp-action="PrintListOfSupplements">Print Supplement List</a>
+
+    }
+
+
+
+</p>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                Supplement Type
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Status.Equals("Published"))
+            {
+
+        <tr onclick="window.location='/Supplements/Details/@item.Id';" style="cursor: pointer;">
+            <td>
+                @item.Name.Abbreviate();
+            </td>
+            <td>
+                @{
+                    <img src="~/pictures/@item.Picture" width="100" />
+
+                }
+            </td>
+            <td>
+                @item.Description.Abbreviate()
+            </td>
+            <td>
+                @if (item.Status.Equals("Published"))
+                {
+                    <text>Published</text>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplementType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.FirstName) @Html.DisplayFor(modelItem => item.Member.LastName)
+            </td>
+        </tr>
+                }
+        }
+            </tbody>
+</table>

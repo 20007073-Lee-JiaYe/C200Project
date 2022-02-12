@@ -1,0 +1,38 @@
+﻿@model C200_Official.Models.Programme
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Title)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+        </dt>
+        <dd class="col-sm-10">
+            <img src="/pictures/@Model.PicFile" width="500" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            For more information
+        </dt>
+        <dd class="col-sm-10">
+            <a href="@Model.Link">@Model.Link</a>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

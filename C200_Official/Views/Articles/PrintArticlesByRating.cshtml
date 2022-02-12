@@ -1,0 +1,50 @@
+﻿@model List<Article>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPDF.cshtml";
+}
+
+<h2>All Highly Rated Articles</h2>
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <tr>
+        <th scope="col" width="25%">Title</th>
+        <th scope="col" width="25%">Writer</th>
+        <th scope="col" width="25%">Category Name</th>
+        <th scope="col" width="25%">Average Rating</th>
+
+    </tr>
+    @foreach (Article a in Model)
+    {
+        var avgrating = 0.0;
+        var sum = 0.0;
+        var i = 0;
+        @foreach (ArticleRating ar in a.ArticleRatings)
+        {
+            if (ar != null)
+            {
+                sum = sum + ar.Ratings;
+                i = i + 1;
+                avgrating = sum / i;
+            }
+            else
+            {
+                avgrating = 0;
+            }
+        }
+
+       
+
+
+
+
+        <tr scope="row">
+            <td width="25%">@a.Title</td>
+            <td width="25%">@a.Member.FirstName @a.Member.LastName</td>
+            <td width="25%">@a.Category.Name</td>
+            <td width="25%">@avgrating</td>
+
+        </tr>
+    }
+
+</table>

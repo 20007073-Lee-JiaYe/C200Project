@@ -1,0 +1,64 @@
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\MLModel.zip
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.exe
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.deps.json
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.runtimeconfig.json
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.runtimeconfig.dev.json
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Core.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Data.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.KMeansClustering.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.PCA.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.StandardTrainers.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Transforms.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.CpuMath.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.DataView.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libLdaNative.so
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libLdaNative.dylib
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\LdaNative.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\LdaNative.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.Model.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.Model.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.AssemblyInfo.cs
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.genruntimeconfig.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.csproj.CopyComplete
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\MLModel.zip
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.exe
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.deps.json
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.runtimeconfig.json
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.runtimeconfig.dev.json
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.pdb
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Core.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Data.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.KMeansClustering.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.PCA.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.StandardTrainers.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.Transforms.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.CpuMath.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Microsoft.ML.DataView.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libLdaNative.so
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libLdaNative.dylib
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\LdaNative.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\LdaNative.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.Model.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\bin\Debug\netcoreapp3.1\C200_OfficialML.Model.pdb
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.AssemblyInfo.cs
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.csproj.CopyComplete
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.pdb
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.ConsoleApp\obj\Debug\netcoreapp3.1\C200_OfficialML.ConsoleApp.genruntimeconfig.cache

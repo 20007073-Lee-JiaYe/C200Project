@@ -1,0 +1,59 @@
+﻿@model IEnumerable<C200_Official.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Questions Forum</h1>
+@if (TempData["Message"] != null)
+{
+    @* <div class="offset-sm-2 col-sm-12">*@
+    <div class="alert alert-@TempData["MsgType"] col-sm-12">
+        @TempData["Message"]
+    </div>
+    @*</div>*@
+}
+
+<p>
+    <a asp-action="Create" asp-route-ViewName="Index">Create New</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (!item.Status.Equals("DelByUser"))
+            {
+                <tr onclick="window.location='/Questions/Details/@item.Id';" style="cursor: pointer;">
+
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Content)
+
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Member.FirstName)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

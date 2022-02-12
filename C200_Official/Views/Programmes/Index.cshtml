@@ -1,0 +1,92 @@
+﻿@model IEnumerable<C200_Official.Models.Programme>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+
+    <script>
+        function ConfirmDelete() {
+            if (confirm("Are you sure you want to delete?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+    </script>
+
+
+</head>
+
+<h1>Full Programmes</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                Picture
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @if (User.IsInRole("Admin"))
+                {
+                <text>Action</text>
+                }
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr onclick="window.location='/Programmes/Details/@item.Id';" style="cursor: pointer;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @{
+                        <img src="~/pictures/@item.PicFile" width="100" />
+
+                    }
+                </td>
+                <td>
+                    @item.Description.Abbreviate()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+
+
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fas fa-pencil-alt"></i>
+                        &nbsp;
+                    </a>
+
+                    <a asp-controller="Programmes" asp-action="Delete" asp-route-id="@item.Id"
+                       onclick="return ConfirmDelete()">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

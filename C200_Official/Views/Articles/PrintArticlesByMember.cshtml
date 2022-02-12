@@ -1,0 +1,26 @@
+﻿@using System.Dynamic
+@model List<dynamic>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPDF.cshtml";
+}
+
+    <h2>Articles grouped by writer and category</h2>
+
+    <table class="table table-bordered table-condensed table-hover table-striped">
+        <tr>
+            <th scope="col" width="50%">Writer</th>
+            <th scope="col" width="35%">Category Name</th>
+            <th scope="col" width="15%">Articles count</th>
+        </tr>
+
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.MemberName</td>
+                <td>@r.CatName</td>
+                <td>@r.NumberOfArticles </td>
+            </tr>
+        }
+    </table>

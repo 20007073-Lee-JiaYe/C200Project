@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Healthy You And Me</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/UpdatedScriptCSS/datatables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Healthy You And Me</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 mr-auto">
+                        <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle text-dark" role="button"
+                                                             href="#" id="navbarDropdown" data-toggle="dropdown"
+                                                             aria-haspopup="true" aria-expanded="false">
+                                QnA Forum
+                            </a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" asp-controller="Questions" asp-action="Index">View QnA List</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" asp-controller="Questions" asp-action="Create">Ask A Question</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" asp-controller="Questions" asp-action="MemQns">Your Posted/Archived Questions</a>
+                                                        </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" role="button"
+                               href="#" id="navbarDropdown" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Articles
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Articles" asp-action="Index">View Articles List</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Articles" asp-action="Create">Upload New Article Detail</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Articles" asp-action="IndexMember">Your Written/Archived Articles</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" role="button"
+                               href="#" id="navbarDropdown" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Videos
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Videos/Index">View Videos List</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Videos/Create">Upload New Video Links</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Videos" asp-action="IndexMember">Your Written/Archived Video</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" role="button"
+                               href="#" id="navbarDropdown" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Supplements
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Supplements/Index">View Supplements List</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/Supplements/Create">Upload New Supplements Details</a>
+                                <div class="dropdown-divider"></div>
+                                <a asp-controller="Supplements"
+                                   asp-action="IndexMember" class="dropdown-item">Your Posted/Archived Supplements</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" role="button"
+                               href="#" id="navbarDropdown" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Programmes
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Programmes/Index">View Programmes List</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/Programmes/Create">Upload New Program Details</a>
+                                }
+                            </div>
+
+                        </li>
+
+
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-area=""
+                                   asp-controller="Account"
+                                   asp-action="Login">Login</a>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Register">Register</a>
+                            </li>
+
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" role="button"
+                                   href="#" id="navbarDropdown" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Logged in as @User.Identity.Name
+                                </a>
+                                <div class="dropdown-menu">
+
+                                    <a class="dropdown-item" asp-controller="Members" asp-action="Edit">Edit Profile</a>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a asp-controller="Articles"
+                                           asp-action="ApprovalOfArticles" class="dropdown-item">Pending Articles</a>
+                                        <a asp-controller="Articles"
+                                           asp-action="PendingComments" class="dropdown-item">Pending Article Comments</a>
+                                        <a asp-controller="Questions"
+                                           asp-action="PendingAnswer" class="dropdown-item">Pending Answer</a>
+                                        <a asp-controller="Videos"
+                                           asp-action="ApprovalOfVideos" class="dropdown-item">Pending Video Posts</a>
+                                        <a asp-controller="Videos"
+                                           asp-action="PendingComments" class="dropdown-item">Pending Video Comments</a>
+                                        <a asp-controller="Supplements"
+                                           asp-action="ApprovalOfSupplements" class="dropdown-item">Pending Supplement Posts</a>
+                                        <a class="dropdown-item" asp-controller="Members"
+                                           asp-action="FromExcelInsertToDB">Import new members from excel</a>}
+
+
+                                    <a asp-controller="Account"
+                                       asp-action="Logoff"
+                                       asp-route-returnUrl="Home" class="dropdown-item">Logout</a>
+                                </div>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Healthy_You_And_Me - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/UpdatedScriptCSS/datatables.min.js"></script>
+    @*<script src="~/DataTables/datatables.js"></script>*@
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

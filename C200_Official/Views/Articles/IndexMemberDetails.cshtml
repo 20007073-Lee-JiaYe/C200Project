@@ -1,0 +1,294 @@
+﻿@model C200_Official.Models.Article
+@using System.Security.Claims;
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+
+    <script>
+        function ConfirmArchive() {
+            if (confirm("Are you sure you want to archive?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+
+        function ConfirmUnarchive() {
+            if (confirm("Are you sure you want to unarchive?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+
+        function ConfirmDelete() {
+            if (confirm("Are you sure you want to delete?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<h1>Details of Articles</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        @if (TempData["Message"] != null)
+        {
+            @* <div class="offset-sm-2 col-sm-12">*@
+            <div class="alert alert-@TempData["MsgType"] col-sm-12">
+                @TempData["Message"]
+            </div>
+            @*</div>*@
+        }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                if (Model.Picture != "")
+                {
+                    <img src="/pictures/@Model.Picture" width="300" />
+                }
+                else
+                {
+                    <img src="/pictures/NoImage.jpeg" width="300" />
+
+                }
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+
+            @if (Model.Status.Equals("ArchivedByUser"))
+            {
+                <text>Archived</text>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Status)
+            }
+
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubmittedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubmittedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PublishedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PublishedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member)
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.Member.Username)*@
+            @Model.Member.FirstName @Model.Member.LastName
+        </dd>
+
+
+        <!--USER ENTER COMMENTS-->
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (Model.Status.Equals("Published"))
+            {
+                <form asp-controller="Articles" asp-action="ArchiveArticle" asp-route-id="@Model.Id" onclick="return ConfirmArchive()">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Archive Article" class="btn btn-warning" />
+                        </div>
+                    </div>
+                </form>
+
+                <form asp-controller="Articles" asp-action="Delete" asp-route-id="@Model.Id">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Delete Article" class="btn btn-danger" onclick="return ConfirmDelete()" />
+                        </div>
+                    </div>
+                </form>
+                <dd class="col-sm-10">
+                    @{
+                        <form asp-action="AddComment" asp-controller="Articles" asp-route-ArticleID="@Model.Id" asp-route-ViewName="IndexMemberDetails">
+
+                            <div class="form-group">
+                                <pre>
+
+
+                            </pre>
+                                <label for="comment" class="control-label">Post Comments Below:</label>
+                                <input name="comment" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Insert Comment" class="btn btn-primary  offset-sm-10 col-sm-2" />
+                            </div>
+                        </form>
+                    }
+
+                </dd>
+            }
+
+            if (Model.Status.Equals("ArchivedByUser"))
+            {
+                <form asp-controller="Articles" asp-action="UnarchiveArticle" asp-route-id="@Model.Id" onclick="return ConfirmUnarchive()">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Unarchive Article" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+
+                <form asp-controller="Articles" asp-action="Delete" asp-route-id="@Model.Id">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Delete Article" class="btn btn-danger" onclick="return ConfirmDelete()" />
+                        </div>
+                    </div>
+                </form>
+            }
+
+            if (Model.Status.Equals("Pending"))
+            {
+                <form asp-controller="Articles" asp-action="Delete" asp-route-id="@Model.Id">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="submit" value="Delete Article" class="btn btn-danger" onclick="return ConfirmDelete()" />
+                        </div>
+                    </div>
+                </form>
+            }
+
+            //under Index article admin
+
+            @* if (User.IsInRole("Admin") && Model.Status.Equals("Pending"))
+                {
+                    <form asp-controller="Articles" asp-action="ApproveArticles" asp-route-id="@Model.Id" onclick="return ConfirmApproval()">
+
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="submit" value="Approve Article" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </form>
+
+                    <form asp-controller="Articles" asp-action="AdminDelete" asp-route-id="@Model.Id">
+
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="submit" value="Delete Article" class="btn btn-danger" onclick="return ConfirmDelete()" />
+                            </div>
+                        </div>
+                    </form>
+                }*@
+
+        }
+
+
+
+        <!--SHOW COMMENTS PART-->
+        @{
+            <dt class="col-sm-12">Comments</dt>
+            <hr />
+
+
+            foreach (ArticleComment item in Model.ArticleComments)
+
+            {
+                if (item.Status.Equals("Published")) // published article
+                {
+                    <dd class="col-sm-10">
+                        @item.Content <br />
+                        by @item.Member.FirstName
+
+                        on @item.DatePublished
+                        <hr />
+                    </dd>
+                }
+                else
+                {
+                    //use a var to hold the id first
+                    int theRealUserID = 0;
+
+                    //put the real user id inside
+                    var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+
+                    if (userId != null)
+                    {
+                        theRealUserID = Int32.Parse(userId);
+                        if (item.MemberId == theRealUserID) //if this person is the writer
+                        {
+                            <dd class="col-sm-10">
+                                @item.Content <br />
+                                by @item.Member.FirstName
+
+                                on @item.DatePublished
+                                <div class="alert-danger col-sm-3 text-center"> @item.Status</div>
+                                <hr />
+                            </dd>
+
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+
+    </dl>
+</div>
+<div>
+
+    @if (User.IsInRole("Admin") && Model.Status.Equals("Pending"))
+    {
+        <a asp-action="ApprovalOfArticles">Back to list of pending articles</a>
+    }
+    else
+    {
+        <a asp-action="IndexMember">Back to List</a>
+    }
+
+</div>
+

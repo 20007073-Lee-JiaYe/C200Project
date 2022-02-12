@@ -1,0 +1,117 @@
+﻿@model IEnumerable<C200_Official.Models.Article>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Full Articles</h1>
+@if (TempData["Message"] != null)
+{
+    @* <div class="offset-sm-2 col-sm-12">*@
+    <div class="alert alert-@TempData["MsgType"] col-sm-12">
+        @TempData["Message"]
+    </div>
+    @*</div>*@
+}
+
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create" asp-route-ViewName="Articles">Create New</a>
+        @if (User.IsInRole("Admin"))
+        {<a>|</a>
+            <a asp-action="PrintArticlesByMember">Print Articles grouped by Member and Category</a>
+            <a>|</a>
+            <a asp-action="PrintArticlesByRating">Print Articles grouped by Rating</a>
+        }
+
+    }
+
+
+
+</p>
+<table id="mainTable" class="table table-hover table-striped" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ArticleRatings)
+                </th>*@
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Status.Equals("Published"))
+            {
+
+                <tr onclick="window.location='/Articles/Details/@item.Id';" style="cursor: pointer;">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @item.Content.Abbreviate()
+                    </td>
+                    <td>
+                        @{
+                            if (item.Picture != "")
+                            {
+                                <img src="/pictures/@item.Picture" width="100" />
+                            }
+                            else
+                            {
+                                <img src="/pictures/NoImage.jpeg" width="100" />
+                            }
+                        }
+                    </td>
+                    <td>
+                        @*to be edited*@
+                        @if (item.Status.Equals("Pending"))
+                        {
+                            <text>Pending</text>
+                        }
+                        else if (item.Status.Equals("Published"))
+                        {
+                            <text>Published</text>
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubmittedOn)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Member.FirstName) @Html.DisplayFor(modelItem => item.Member.LastName)
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>

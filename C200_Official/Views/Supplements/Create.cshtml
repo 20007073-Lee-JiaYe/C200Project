@@ -1,0 +1,60 @@
+﻿@model C200_Official.Models.Supplement
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Create Supplement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <textarea rows="3" asp-for="Name" class="form-control"></textarea>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea rows="10" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SuggestedUse" class="control-label">Suggested Use</label>
+                <textarea rows="5" asp-for="SuggestedUse" class="form-control"></textarea>
+                <span asp-validation-for="SuggestedUse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Warnings" class="control-label"></label>
+                <textarea rows="7" asp-for="Warnings" class="form-control"></textarea>
+                <span asp-validation-for="Warnings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplementTypeId" class="control-label">Supplement Type</label>
+                <select asp-for="SupplementTypeId" class="form-control" asp-items="ViewBag.SupplementId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label" hidden></label>
+                <input asp-for="Status" class="form-control" value="Pending" hidden />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="image">Photo :</label>
+                <input type="file" name="image" id="image" class="form-control-file" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

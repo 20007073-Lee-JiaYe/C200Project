@@ -1,0 +1,253 @@
+﻿@model C200_Official.Models.Article
+
+@using System.Security.Claims;
+@using System.Web;
+@using Microsoft.AspNetCore.Authentication;
+@using Microsoft.AspNetCore.Authentication.Cookies;
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+
+    <script>
+        function ConfirmArchive() {
+            if (confirm("Are you sure you want to archive?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+
+        function ConfirmDelete() {
+            if (confirm("Are you sure you want to delete?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<h1>Details of Articles</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        @if (TempData["Message"] != null)
+        {
+            @* <div class="offset-sm-2 col-sm-12">*@
+            <div class="alert alert-@TempData["MsgType"] col-sm-12">
+                @TempData["Message"]
+            </div>
+            @*</div>*@
+        }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                if (Model.Picture != "")
+                {
+                    <img src="/pictures/@Model.Picture" width="300" />
+                }
+                else
+                {
+                    <img src="/pictures/NoImage.jpeg" width="300" />
+
+                }
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+
+            @if (Model.Status.Equals("ArchivedByUser"))
+            {
+                <text>Archived</text>
+            }
+            else if (Model.Status.Equals("Pending"))
+            {
+                <text>Pending</text>
+            }
+            else if (Model.Status.Equals("Published"))
+            {
+                <text>Published</text>
+            }
+
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubmittedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubmittedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PublishedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PublishedOn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member)
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.Member.Username)*@
+            @Model.Member.FirstName @Model.Member.LastName
+        </dd>
+
+
+        <!--USER ENTER COMMENTS-->
+        @if (User.Identity.IsAuthenticated)
+        {
+            @*<dd class="col-sm-10">*@
+            @if ((int)ViewData["rm"] == 0)
+            {
+                <dd class="col-sm-10">
+                    <form asp-action="AddRating" asp-controller="Articles" asp-route-ArticleID="@Model.Id">
+
+                        <div class="form-group row">
+                            <label class="control-label col-sm-3 ">Your Rating : </label>
+                            <div class="col-sm-6">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input"
+                                           id="1" name="rating" value="1" />
+                                    <label class="form-check-label" for="1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input"
+                                           id="2" name="rating" value="2" />
+                                    <label class="form-check-label" for="2">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input"
+                                           id="3" name="rating" value="3" />
+                                    <label class="form-check-label" for="3">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input"
+                                           id="4" name="rating" value="4" />
+                                    <label class="form-check-label" for="4">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input"
+                                           id="5" name="rating" value="5" />
+                                    <label class="form-check-label" for="5">5</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Rate Article" class="btn btn-primary  offset-sm-10 col-sm-2" />
+                        </div>
+                    </form>
+                </dd>
+            }
+            else
+            {
+                int a = (int)ViewData["rm"];
+                @*< text > Your Rating:</ text > @a *@
+                <dt class="col-sm-2">
+                    Your Rating:
+                </dt>
+                <dd class="col-sm-10">
+                    @a
+                </dd>
+            }
+            <dd class="col-sm-10">
+                <form asp-action="AddComment" asp-controller="Articles" asp-route-ArticleID="@Model.Id" asp-route-ViewName="Details">
+
+                    <div class="form-group">
+                        <pre>
+
+
+                            </pre>
+                        <label for="comment" class="control-label">Post Comments Below:</label>
+                        <input name="comment" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Insert Comment" class="btn btn-primary  offset-sm-10 col-sm-2" />
+                    </div>
+                </form>
+            </dd>
+        }
+        @*</dd>*@
+
+
+        <!--SHOW COMMENTS PART-->
+        @{
+            <dt class="col-sm-12">Comments</dt>
+            <hr />
+
+            foreach (ArticleComment item in Model.ArticleComments)
+
+            {
+                if (item.Status.Equals("Published")) // published article
+                {
+                    <dd class="col-sm-10">
+                        @item.Content <br />
+                        by @item.Member.FirstName
+
+                        on @item.DatePublished
+                        <hr />
+                    </dd>
+                }
+                else
+                {
+                    //use a var to hold the id first
+                    int theRealUserID = 0;
+
+                    //put the real user id inside
+                    var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+
+                    if (userId != null)
+                    {
+                        theRealUserID = Int32.Parse(userId);
+                        if (item.MemberId == theRealUserID) //if this person is the writer
+                        {
+                            <dd class="col-sm-10">
+                                @item.Content <br />
+                                by @item.Member.FirstName
+
+                                on @item.DatePublished
+                                <div class="alert-danger col-sm-3 text-center"> @item.Status</div>
+                                <hr />
+                            </dd>
+
+                        }
+                    }
+
+                }
+            }
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

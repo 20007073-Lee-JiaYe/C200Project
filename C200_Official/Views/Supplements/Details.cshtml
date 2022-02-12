@@ -1,0 +1,87 @@
+﻿@model C200_Official.Models.Supplement
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+
+    <script>
+        function ConfirmArchive() {
+            if (confirm("Are you sure you want to archive?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+
+        function ConfirmDelete() {
+            if (confirm("Are you sure you want to delete?") == false) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+    </script>
+
+</head>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                <img src="~/pictures/@Model.Picture" width="300" />
+
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Supplement Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SupplementType.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Suggested Use
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SuggestedUse)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Warnings)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Warnings)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class="col-sm-2">
+            Uploaded By
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Member.FirstName @Model.Member.LastName
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

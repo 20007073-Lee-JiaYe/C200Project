@@ -1,0 +1,27 @@
+﻿@model List<Supplement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPDF.cshtml";
+}
+
+<h2>All Supplements</h2>
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <tr>
+        <th scope="col" width="25%">Title</th>
+        <th scope="col" width="25%">Description</th>
+        <th scope="col" width="25%">Writer</th>
+
+    </tr>
+    @foreach (Supplement a in Model)
+    {
+        <tr scope="row">
+            <td width="25%">@a.Name</td>
+            <td width="25%">@a.Description</td>
+            <td width="25%">@a.Member.FirstName @a.Member.LastName</td>
+
+
+
+        </tr>
+    }
+</table>

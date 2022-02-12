@@ -1,0 +1,87 @@
+﻿@model IEnumerable<C200_Official.Models.Video>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1>Full Videos</h1>
+@if (TempData["Message"] != null)
+{
+    @* <div class="offset-sm-2 col-sm-12">*@
+    <div class="alert alert-@TempData["MsgType"] col-sm-12">
+        @TempData["Message"]
+    </div>
+    @*</div>*@
+}
+
+<table id="mainTable" class="table table-hover table-striped" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                Published Date
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Status.Equals("Published"))
+            {
+                <tr onclick="window.location='/Videos/Details/@item.Id';" style="cursor: pointer;">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @item.Description.Abbreviate()
+                    </td>
+                    <td>
+                        @if (item.Status.Equals("Pending"))
+                        {
+                            <text>Pending</text>
+                        }
+                        else if (item.Status.Equals("Published"))
+                        {
+                            <text>Published</text>
+                        }
+                    </td>
+                    <td>
+                        @*@{
+                                var formatDateTime = String.Format(
+                                     "{0:dd MMMM yyyy hh:mm tt}", item.DatePublished);
+                            }
+
+                            @formatDateTime*@
+
+                        @Html.DisplayFor(modelItem => item.DatePublished)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Member.FirstName) @Html.DisplayFor(modelItem => item.Member.LastName)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

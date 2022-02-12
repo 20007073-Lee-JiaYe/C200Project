@@ -1,0 +1,44 @@
+﻿@model LoginUser
+@{
+    Layout = "_Layout";
+    string msg = ViewData["Message"] as string;
+}
+
+<form class="form-horizontal" method="post">
+    @if (ViewData["Message"] != null)
+    {
+        <div class="form-group row">
+            <div class="alert alert-@ViewData["MsgType"]">
+                <text>@ViewData["Message"]</text>
+            </div>
+        </div>
+    }
+    <h2 class="form-signin-heading">Please Sign In</h2>
+    <div class="col-5">
+        <div class="form-group row">
+            <label asp-for="Username" class="control-label">Username :</label>
+            <input asp-for="Username" class="form-control" placeholder="Your registered username" />
+            <div class="col-3">
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Password" class="control-label">Password :</label>
+            <input asp-for="Password" class="form-control" placeholder="Password" />
+            <div class="col-3">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-check">
+                <input asp-for="RememberMe" class="form-check-input" />
+                <label asp-for="RememberMe" class="form-check-label">
+                    Remember Me
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In" />
+        </div>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.deps.json
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.AssemblyInfoInputs.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.AssemblyInfo.cs
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.csproj.CoreCompileInputs.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\C200_Solution\C200_Offical\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.csproj.AssemblyReference.cache
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.deps.json
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.pdb
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.AssemblyInfoInputs.cache
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.AssemblyInfo.cs
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.csproj.CoreCompileInputs.cache
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.dll
+C:\Users\20009188\Documents\Year 2\Year 2 (Semester 2)\C200 (Special Project)\Lessons\C200_Project\V5_C200_Official\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\bin\Debug\netstandard2.0\MLModel.zip
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.deps.json
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\bin\Debug\netstandard2.0\C200_OfficialML.Model.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.AssemblyInfoInputs.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.AssemblyInfo.cs
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.csproj.CoreCompileInputs.cache
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.dll
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.pdb
+C:\Users\20007073\Desktop\RP\Y2 Sem 2\C200 Special Project\Presentation\V5_C200_Official (2)\C200_OfficialML.Model\obj\Debug\netstandard2.0\C200_OfficialML.Model.csproj.AssemblyReference.cache

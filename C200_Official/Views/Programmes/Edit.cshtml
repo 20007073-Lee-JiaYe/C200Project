@@ -1,0 +1,77 @@
+﻿@model C200_Official.Models.Programme
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h4>Update Program Information</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <textarea rows="2" asp-for="Title" class="form-control"></textarea>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <img src="/pictures/@Model.PicFile" width="400" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea rows="10" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="control-label"></label>
+                <textarea rows="7" asp-for="Link" class="form-control"></textarea>
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label">Category Name</label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+            <label class="control-label" for="chkpic"></label>
+            <label for="chkpic">
+                <input type="checkbox" name="chkpic" id="chkpic" onclick="photoFunction()" /> Change Picture
+            </label>
+
+            <div class="form-group" id="image" style="display: none;">
+                <label class="control-label" for="image">Photo</label>
+                <input type="file" name="image" class="form-control-file" />
+            </div>
+
+            <script>
+                function photoFunction() {
+                    if (document.getElementById("chkpic").checked) {
+                        document.getElementById("image").style.display = "block"; // block = show
+                    } else {
+                        document.getElementById("image").style.display = "none";
+                    }
+
+                }
+            </script>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            @*<div class="form-group" style="visibility:hidden">
+                <label asp-for="PicFile" class="control-label"></label>
+                <input asp-for="PicFile" class="form-control" />
+                <span asp-validation-for="PicFile" class="text-danger"></span>
+            </div>*@
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

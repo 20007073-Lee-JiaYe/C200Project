@@ -1,0 +1,115 @@
+﻿@model IEnumerable<C200_Official.Models.Video>
+
+@{
+    ViewData["Title"] = "ApprovalOfVideos";
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">
+        @TempData["Message"]
+    </div>
+}
+<head>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+
+    @section scripts {
+        <script>
+
+            function ConfirmApproval() {
+                if (confirm("Are you sure you want to approve article?") == false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                }
+            }
+
+            function ConfirmDelete() {
+                if (confirm("Are you sure you want to delete?") == false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                }
+            }
+        </script>
+    }
+    </head>
+
+
+
+<h1>Pending Video Posts</h1>
+
+<table class="table table-striped table-hover">
+
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th colspan="3" style="text-align:center">
+                Action
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Status.Equals("Pending"))
+            {
+        <tr onclick="window.location='/Videos/IndexVideoAdmin/@item.Id';" style="cursor: pointer;">
+            <td>
+                @item.Title.Abbreviate()
+
+            </td>
+
+            <td>
+                @item.Description.Abbreviate()
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-controller="Videos" asp-action="IndexVideoAdmin" asp-route-id="@item.Id" title="View Details"><span style="float:right;"><i class="fa fa-align-left"></i></span></a>
+            </td>
+            <td>
+                <a asp-controller="Videos" asp-action="AdminApproveVideos" asp-route-id="@item.Id"><span style="float:right;" title="Approve"><i class="fa fa-check"></i></span></a>
+            </td>
+            <td>
+                <a asp-controller="Videos" asp-action="AdminDelete" asp-route-id="@item.Id"><span style="float:right;" title="Reject"><i class="fa fa-times"></i></span></a>
+            </td>
+
+        </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
