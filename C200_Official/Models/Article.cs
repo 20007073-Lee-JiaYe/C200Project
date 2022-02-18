@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using System.ComponentModel.DataAnnotations;
+
 #nullable disable
 
 namespace C200_Official.Models
@@ -14,7 +16,12 @@ namespace C200_Official.Models
         }
 
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please Enter Title.")]
+        [StringLength(80, MinimumLength = 10, ErrorMessage = "Title does not meet length(10-80 characters only)")]
         public string Title { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Content.")]
+        [StringLength(80, MinimumLength = 10, ErrorMessage = "Content does not meet length(10-80 characters only)")]
         public string Content { get; set; }
         public string Status { get; set; }
         public DateTime SubmittedOn { get; set; }

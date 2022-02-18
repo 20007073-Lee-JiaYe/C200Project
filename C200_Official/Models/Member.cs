@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -22,9 +23,13 @@ namespace C200_Official.Models
         }
 
         public int Id { get; set; }
+       [Required(ErrorMessage ="Please enter username")]
         public string Username { get; set; }
+        [Required(ErrorMessage = "Please enter firstname")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Please enter lastname")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Please enter email")]
         public string Email { get; set; }
         public byte[] Password { get; set; }
         public string Role { get; set; }

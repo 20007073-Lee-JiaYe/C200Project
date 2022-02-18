@@ -36,8 +36,8 @@ public static class EmailUtl
       try
       {
          client.Send(mm);
-      }
-      catch (Exception e)
+      } 
+      catch (Exception e) 
       {
          error = e.Message;
          success = false;

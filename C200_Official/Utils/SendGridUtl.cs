@@ -1,21 +1,29 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 public class SendGridUtl
 {
+    private static IConfiguration config =
+      new ConfigurationBuilder()
+         .SetBasePath(Directory.GetCurrentDirectory())
+         .AddJsonFile("appsettings.json")
+         .Build()
+         .GetSection("SendGridSettings");
+
     // send email to user based on admin's approval of their comment
     public static async Task SendEMail(string emailAddress, string name, string comment, string status)
     {
-        var apiKey = Environment.GetEnvironmentVariable("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");
+        var apiKey = config.GetValue<String>("APIKey");
         // authenticate with sendgrid API
-        var client = new SendGridClient("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");
+        var client = new SendGridClient(apiKey);
         // create the email along with details
         var msg = new SendGridMessage()
         {
-            From = new EmailAddress("20007073@myrp.edu.sg", "Healthy You And Me Team"),
+            From = new EmailAddress(config.GetValue<String>("AutenticatedEmail"), "Healthy You And Me Team"),
             Subject = "Your recent comment has been reviewed",
             //PlainTextContent = "and easy to do anywhere, even with C#",
             HtmlContent = CreateBody(name, comment, status)

@@ -373,6 +373,7 @@ namespace C200_Official.Controllers
                 newAnswer.AnsweredDate = DateTime.Now;
                 newAnswer.Description = description;
                 newAnswer.QuestionId = QuestionID;
+
                 var mlUtl = new MLUtl();
 
                 String predict = mlUtl.PredictEmotions(description);

@@ -12,6 +12,7 @@ namespace C200_Official.Models
         public DateTime AnsweredDate { get; set; }
         public string Description { get; set; }
         public int QuestionId { get; set; }
+
         public string Status { get; set; }
 
         public virtual Member Member { get; set; }

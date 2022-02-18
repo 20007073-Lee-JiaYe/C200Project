@@ -21,6 +21,7 @@ namespace C200_Official.Models
         [Required(ErrorMessage = "Please enter ONLY YouTube Links!")]
         [Url]
         public string Link { get; set; }
+        [Required(ErrorMessage = "Please enter description")]
         public string Description { get; set; }
         public DateTime SubmittedOn { get; set; }
         public DateTime? DatePublished { get; set; }

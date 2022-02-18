@@ -1,0 +1,722 @@
+CREATE TABLE [dbo].[Member] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [Username]  VARCHAR (50)   NOT NULL,
+    [FirstName] VARCHAR (50)   NOT NULL,
+    [LastName]  VARCHAR (50)   NOT NULL,
+    [Email]  VARCHAR (50)   NOT NULL,
+    [Password]  VARBINARY (50) NOT NULL,
+    [Role]      VARCHAR (20)   NOT NULL,
+    [LastLogin] DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+SET IDENTITY_INSERT [dbo].[Member] ON
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (1, N'jonathan_lee', N'Jonathan', N'Lee', N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (2, N'felicia_kang', N'Felicia', N'Kang', N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (3, N'dorothy_ta', N'Dorothy', N'Ta',N'20007073@myrp.edu.sg',   0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (4, N'rancor_kang', N'Rancor', N'Kang',N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (5, N'brutus_loyal', N'Brutus', N'Loyal', N'20007073@myrp.edu.sg',0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (6, N'paper_clip', N'Paper', N'Clip', N'20007073@myrp.edu.sg',0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (7, N'alicia_quek', N'Alicia', N'Quek', N'20007073@myrp.edu.sg',0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (8, N'alexandra_jonas', N'Alexandra', N'Jonas', N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (9, N'clarp_ten', N'Clarp', N'Ten', N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Member', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (10, N'lois_nine', N'Lois', N'Nine', N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Admin', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (13, N'purple_master', N'Purple', N'Master', N'20007073@myrp.edu.sg',  0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Admin', NULL)
+INSERT INTO [dbo].[Member] ([Id], [Username], [FirstName], [LastName], [Email], [Password], [Role], [LastLogin]) VALUES (14, N'rassa_twina', N'Rassa', N'Twina', N'20007073@myrp.edu.sg', 0x5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8, N'Admin', NULL)
+SET IDENTITY_INSERT [dbo].[Member] OFF
+
+CREATE TABLE [dbo].[Category] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Name]        VARCHAR (50) NOT NULL,
+    [Description] TEXT         NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+SET IDENTITY_INSERT [dbo].[Category] ON
+INSERT INTO [dbo].[Category] ([Id], [Name], [Description]) VALUES (1, N'Mental_Wellness', N'Mental wellness is as important as physical health.')
+INSERT INTO [dbo].[Category] ([Id], [Name], [Description]) VALUES (2, N'Rehab', N'We are here to help you recover!')
+INSERT INTO [dbo].[Category] ([Id], [Name], [Description]) VALUES (3, N'Eat_Clean', N'Find out how to eat clean from this category!')
+INSERT INTO [dbo].[Category] ([Id], [Name], [Description]) VALUES (4, N'Physical_Health_Wellness', N'Keep fit and everything will be fit.')
+INSERT INTO [dbo].[Category] ([Id], [Name], [Description]) VALUES (5, N'Healthy_Food_Recommendations', N'Wanna know healthly food snack? Come and read articles in this category.')
+SET IDENTITY_INSERT [dbo].[Category] OFF
+
+
+CREATE TABLE [dbo].[Programme] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Title]   VARCHAR (200) NOT NULL,
+    [PicFile] VARCHAR(100) NOT NULL,
+    [Status]      VARCHAR (100)  NOT NULL,
+    [Description]     TEXT  NOT NULL,
+    [Link]      TEXT  NOT NULL,
+    [CategoryID] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([Id]),
+);
+
+SET IDENTITY_INSERT [dbo].[Programme] ON
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (1, N'Eat,Drink, Shop Healthy Challenge', N'1.png', N'Published', N'Enter the world of sure wins when you choose healthier.' , N'https://www.healthhub.sg/programmes/136/eat-drink-shop-healthy-challenge', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (2, N'MindSG', N'2.png', N'Published', N'Explore our suite of self-care tips and tools designed to help you achieve better mental well-being.' , N'https://www.healthhub.sg/programmes/186/MindSG/Discover', 1)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (3, N'Sleep Challenge', N'3.jpg', N'Published', N'The Sleep Challenge rewards you for having sufficient sleep. Aim for at least 7 hours of sleep daily and be rewarded with up to $30 in eVouchers! Get at least 7 hours of sleep to earn 25 Healthpoints dailyGet at least 7 hours of sleep to earn 25 Healthpoints daily.' , N'https://www.healthhub.sg/programmes/37/nsc/sleep-challenge', 1)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (4, N'Team Steps Race', N'4.png', N'Published', N'Earn a National Steps ChallengeTM collapsible cup by clocking ≥30,000 average daily steps as a team during the challenge period.' , N'https://www.healthhub.sg/programmes/37/nsc/team-steps-race', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (5, N'Healthy Workplace Ecosystems', N'5.png', N'Published', N'Healthy Workplace Ecosystems will compete against each other based on the highest daily average step count. Top 5 Healthy Workplace Ecosystems will earn bragging rights to be featured on the leaderboard monthly!' , N'https://www.healthhub.sg/programmes/37/nsc/healthy-workplace-ecosystems', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (6, N'Thematic Challenge', N'6.png', N'Published', N'With over $65,000 worth of attractive prizes to be given away, simply clock 10,000 steps and/or 30 minutes of Moderate to Vigorous Physical Activity (MVPA) minutes over the challenge period to earn chances at our lucky draw. Plus, multiply your chances with every 22,000 steps clocked!' , N'https://www.healthhub.sg/programmes/37/nsc/thematic-challenge', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (7, N'HEALTHIER RECIPES FOR HOME-COOKED GOODNESS', N'7.png', N'Published', N'Looking to cook up some wholesome goodness? We’ve prepared a mouth-watering selection of quick and easy recipes. Above all, they are healthier and tasty, perfect for preparing a nutritious meal for you and your family!' , N'https://www.healthhub.sg/programmes/54/recipes', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (8, N'HPB Rewards Programme', N'8.png', N'Published', N'Introducing HPB Rewards Programme. Enjoy the perks of a healthier life. Good health alone is its own reward. But if you need a little motivation to make healthier choices, or want recognition for your healthy actions, join the HPB Rewards Programme. You’ll be rewarded for achieving milestones as you build positive and healthy behaviours.' , N'https://www.healthhub.sg/programmes/182/healthhub-rewards', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (9, N'Screen for Life - National Health Screening Programme', N'9.png', N'Published', N'Screen for Life (SFL) is a national screening programme that encourages Singapore Citizens and Permanent Residents to go for regular health screening and follow up.' , N'https://www.healthhub.sg/programmes/61/Screen_for_Life', 2)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (10, N'Let''s Get Our Seniors Vaccinated Against COVID-19', N'10.png', N'Published', N'Support our seniors on their COVID-19 vaccination journey and get $30 HPB eVouchers. Together, lets help seniors protect themselves and their loved ones.' , N'https://www.healthhub.sg/programmes/185/refer-senior', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (11, N'Stay Well to Stay Strong', N'11.png', N'Published', N'Kickstart your healthy habits today with good hygiene practices, an active lifestyle, a balanced diet and sufficient sleep.' , N'https://www.healthhub.sg/programmes/170/StayWell', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (12, N'Korang OK?', N'12.png', N'Published', N'This festive season is all about embracing self-control, moderation and a new beginning. Let’s celebrate the true meaning of this season and foster some healthy habits. Even the smallest acts, like cutting down our sugar intake or exercising a little more, can lead to a big impact. Take the first step today!' , N'https://www.healthhub.sg/programmes/181/korangok', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (13, N'FIGHT The Spread Of Infectious Diseases', N'13.jpg', N'Published', N'Practise the 5 F.I.G.H.T. steps to protect those you love from the flu and other infectious diseases.' , N'https://www.healthhub.sg/programmes/52/Fight_The_Spread', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (14, N'Let’s BEAT Diabetes', N'14.png', N'Published', N'Find out more about pre-diabetes, diabetes and how you can prevent them by making some changes to your lifestyle.' , N'https://www.healthhub.sg/programmes/87/diabetes-mellitus', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (15, N'Health Promoting Malls', N'15.jpg', N'Published', N'Wouldn’t it be great if healthy living were as easy and enjoyable as shopping? Now, that’s possible at Health Promoting Malls. Have fun with mall workouts, enjoy healthier meals, and learn how to stay smoke-free – all at your convenience!' , N'https://www.healthhub.sg/programmes/32/health-promoting-malls', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (16, N'Sweet Talk: Sugars and Sweeteners', N'16.png', N'Pending', N'Got a sweet tooth? Find out all about your everyday sugars and sweeteners.' , N'https://www.healthhub.sg/programmes/77/sweet-talk-sugars-and-sweeteners', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (17, N'An Introduction To Calories', N'17.png', N'Pending', N'Counting calories seems to be an essential part of healthy eating. But how many of us have a clear idea of what calories mean?' , N'https://www.healthhub.sg/programmes/69/intro-to-calories', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (18, N'My Healthy Plate', N'18.jpg', N'Pending', N'Read how a balanced meal helps you to stay well-nourished.' , N'https://www.healthhub.sg/programmes/55/my-healthy-plate', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (19, N'Sleep well, live better.', N'19.png', N'Pending', N'Every child needs a daily dose of quality sleep.' , N'https://www.healthhub.sg/programmes/117/goodsleep', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (20, N'How are you feeling today?', N'20.png', N'Pending', N'Discover and make sense of what you’re feeling with our Emotions Explorer!' , N'https://www.healthhub.sg/programmes/179/EmotionsExplorer', 1)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (21, N'7 Easy Exercises to an Active Lifestyle', N'21.png', N'Pending', N'Regardless of age, it is important to keep yourself healthy and active. One easy way is to exercise regularly and aim for 150 minutes of moderate-intensity physical activity* each week. In addition, adults aged 50 years or older should maintain their physical fitness by doing strength and balance exercises at least twice a week.' , N'https://www.healthhub.sg/programmes/71/healthy-ageing-exercise', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (22, N'BMI Calculator', N'22.gif', N'Pending', N'Calculate your Body Mass Index (BMI) here' , N'https://www.healthhub.sg/programmes/93/bmi-calculator', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (23, N'Shape Up with Lower Calories', N'23.png', N'Pending', N'Here are some simple ways for you to maintain your calorie intake.' , N'https://www.healthhub.sg/programmes/120/shape-up-with-lower-calories', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (24, N'Diabetes Hub: Guide to Managing Diabetes', N'24.jpg', N'Pending', N'You can lead a fulfilling life even with diabetes! Eat sensibly, get active and take your medication regularly' , N'https://www.healthhub.sg/programmes/162/diabetes-hub', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (25, N'Get Hands-on With Health', N'25.png', N'Pending', N'Learn the right way to keep your hands clean and prevent the spread of germs. Dispel the common misconceptions of hand hygiene and start practising proper hand washing today!' , N'https://www.healthhub.sg/programmes/188/hygiene', 4)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (26, N'Nutrition 101', N'26.png', N'Pending', N'Finding wholesome food options in the supermarket may not always be a walk in the park. But don’t worry: the Healthier Choice Symbol (HCS) makes them extra easy to spot. Or, you can also use the Nutrition Information Panel (NIP) to pick a healthier food item that better suits your diet.' , N'https://www.healthhub.sg/programmes/57/nutrition-101', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (27, N'Age Healthier When You Cook Right And Eat Smart', N'27.jpg', N'Pending', N'As you age, your metabolism starts to slow down and you will require less energy from food. It is important, therefore, to pack nutrient-dense foods into your everyday meals. The recipe for healthy ageing starts with maintaining a healthy, balanced diet. Learn to get more from life with these easy-to-follow nutrition tips.' , N'https://www.healthhub.sg/programmes/68/healthy-ageing-nutrition', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (28, N'Calorie Calculator', N'28.gif', N'Pending', N'Find out your recommended calories requirement for the day with the Calorie Calculator' , N'https://www.healthhub.sg/programmes/94/calorie-calculator', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (29, N'A 7-Day Calorie Plan For Dining Out', N'29.png', N'Pending', N'Many of us find ourselves eating out ofte​​n. But that doesn’t mean we can’t​​ maintain a balanced diet. By eating the right foods within our recommended daily calorie intake*, we can keep to a healthy weight. Use this 7-day di​​nin​g out guide to enjoy your favourite local delights without packing on the extra pounds. Kick-start your journey towards healthier living today!' , N'https://www.healthhub.sg/programmes/70/7-day-dining-guide', 5)
+INSERT INTO [dbo].[Programme] ([Id], [Title], [PicFile], [Status], [Description], [Link], [CategoryId]) VALUES (30, N'See, Hear & Eat Better', N'30.png', N'Pending', N'Project Silver Screen is a nation-wide functional screening programme for Singaporeans aged 60 and above. It consists of 3 simple checks to ensure your eyes, ears and mouth are in good health!' , N'https://www.healthhub.sg/programmes/144/functional-screening', 5)
+SET IDENTITY_INSERT [dbo].[Programme] OFF
+
+
+CREATE TABLE [dbo].[Video] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Title]       VARCHAR (100) NOT NULL,
+    [Status]      VARCHAR (100)  NOT NULL,
+    [Link]      TEXT  NOT NULL,
+    [Description] TEXT  NOT NULL,
+    [SubmittedOn]  DATETIME   NOT NULL,
+    [DatePublished] DATE   NULL,
+    [CategoryID] INT NOT NULL,
+    [MemberID] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([Id]),
+);
+
+SET IDENTITY_INSERT [dbo].[Video] ON
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (1, N'Mental Health Wellness Tips', N'Published', N'https://www.youtube.com/watch?v=NQcYZplTXnQ', N'Here are practical ways to achieve better mental health and balance in your life, such as practicing gratitude, connecting with others, and maintaining physical health.', N'2021-01-25 10:10:10', N'2021-01-29', 1, 1)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (2, N'The Five Ways to Wellbeing - boosting mental wellbeing', N'Published', N'https://youtu.be/_gJ5V525SCk', N'The Five Ways to Wellbeing - researched and developed by the New Economics Foundation for the Department of Health and Social Care - are five simple things we can implement in our daily lives to improve our mental and physical wellbeing.', N'2020-03-30 10:15:00', N'2020-04-01', 1, 2)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (3, N'10 Tips for Better Mental Health', N'Published', N'https://youtu.be/agPsqRDNS3g', N'Have you been feeling lost, increasingly feeling frustrated, and getting more easily irritated lately? Here are several wellness tips to help you get through this period.', N'2020-02-25 10:12:13', N'2020-02-27', 1, 3)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (4, N'6 Ways to Keep Your Mind Healthy | Brian Tracy', N'Pending', N'https://www.youtube.com/watch?v=Q_23VKJe740', N'Take a moment to consider your answer to this question: What are you doing to keep your brain healthy and active? You may be spending hours each week focusing on developing a strong physical body, but fail to devote any time to actively seeking out ways to improve your mental fitness.', N'2020-03-14 10:16:10', N'2020-03-17', 1, 4)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (5, N'Mental Health in the Workplace | Promoting Wellness and Self Care', N'Pending', N'https://www.youtube.com/watch?v=t8vPEs65QCY', N' A lot of change is happening at once. Our work lives, home lives, and social lives are all different. When adjusting to change, it becomes even more important to practice self-care and promote overall wellness.' , N'2020-03-14 11:15:00', N'2020-03-17', 1, 5)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (6, N'What is Mental Health?', N'Pending', N'https://www.youtube.com/watch?v=G0zJGDokyWQ', N'One in four adults experiences at least one diagnosable mental health problem in any given year. 9 out of 10 people who experience mental health problems say that they face stigma and discrimination as a result. Poor mental health in the workplace costs the UK an estimated £26billion a year.' , N'2020-03-14 11:20:00', N'2020-03-17', 1, 5)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (7, N'Rehabilitation is about health and functioning in everyday life', N'Published', N'https://www.youtube.com/watch?v=uG_VdZe9VNU', N'Anybody, at some point, might need rehabilitation. Rehabilitation enables us to interact, move, be independent, and communicate. Rehabilitation is about health and functioning in everyday life.' , N'2020-03-16 10:15:00',  N'2020-03-18', 2, 7)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (8, N'Post-Stroke Rehabilitation', N'Published', N'https://www.youtube.com/watch?v=2lMtwbj5TTc', N'Post-Stroke Rehabilitation or  Post-CVA (Cerebral Vascular Accident )Rehabilitation This film has been made to explain the various post-CVA rehabilitation therapy and activities to both patients and their families.' , N'2020-03-11 10:13:12', N'2020-03-15', 2, 8)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (9, N'ACL & PCL Injuries, Surgeries, & Rehabilitation Video: Terry Malone | MedBridge', N'Published', N'https://www.youtube.com/watch?v=XP5HDSc4qok', N'Learn how to address the multiplicity of problems that come with the rehabilitation of ACL and PCL injuries. This course will attempt to contextualize the learner to the historical development of the majority of commonplace procedures utilized in the clinic today.' , N'2020-02-14 11:20:00', N'2020-02-17', 2, 9)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (10, N'PCL Tear - Rehabilitation Phase One (0-4 Weeks)', N'Pending', N'https://www.youtube.com/watch?v=lzxqsNqSm1w', N'This video outlines the rehabilitation process of a PCL tear from weeks 0-4. This video is a class project, the subject being filmed does not actually have a PCL Tear.' , N'2020-01-04 12:13:12', N'2020-01-10', 2, 10)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (11, N'Rehabilitation After Stroke: Kinesio Taping', N'Pending', N'https://www.youtube.com/watch?v=mOvKq6PyBbc', N'Kinesio Taping has many potentially therapeutic benefits when used along with other therapies. This video shows a clinical application of kinesio taping to the hand following a stroke. Kinesio taping can be used to assist a motion and provide sensory input. It also is used to minimize edema by reducing pressure and lifting the skin, allowing fluid to move towards the lymphatic system.' , N'2021-02-11 22:30:10', N'2021-03-13', 2, 13)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (12, N'Rehabilitation After Stroke: Speech Therapy', N'Pending', N'https://www.youtube.com/watch?v=LqMs2kA5Y88', N'This is video for intermidiate workouts' , N'2021-05-29 20:29:15', N'2021-05-30', 2, 14)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (13, N'BEGINNERS GUIDE TO HEALTHY EATING | 15 healthy eating tips', N'Published', N'https://www.youtube.com/watch?v=jwWpTAXu-Sg', N'Here is a shortlist of some of the tips that I found the most helpful when transitioning into healthier eating habits.  I hope these 15 simple steps help to make healthy eating a bit easier and a lot more enjoyable for you.' , N'2021-07-11 15:18:33', N'2021-07-17', 3, 1)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (14, N'A healthy diet, a healthier world', N'Published', N'https://www.youtube.com/watch?v=XMcab1MFaLc', N'Today there is a new nutrition reality. It is a reality where undernutrition (such as micronutrient deficiencies, stunting and wasting) , overweight, obesity and diet-related noncommunicable diseases (NCDs) like diabetes and cancer now coexist in the same countries, communities, households and even individuals. This is what is called the double burden of malnutrition which impacts not only our health but also that of future generations, the health of our planet and our economies.' , N'2020-09-14 15:18:33', N'2020-09-17', 3, 2)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (15, N'How the food you eat affects your brain - Mia Nacamulli', N'Published', N'https://www.youtube.com/watch?v=xyQY8a-ng6g', N'When it comes to what you bite, chew and swallow, your choices have a direct and long-lasting effect on the most powerful organ in your body: your brain. So which foods cause you to feel so tired after lunch? Or so restless at night? Mia Nacamulli takes you into the brain to find out.' , N'2020-12-12 16:18:33', N'2020-12-20', 3, 3)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (16, N'How to Create a Healthy Plate', N'Pending', N'https://www.youtube.com/watch?v=Gmh_xMMJ2Pw', N'This is video for intermidiate workouts' , N'2021-03-31 19:18:33', N'2021-04-05', 3, 4)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (17, N'Healthy Eating for Kids - Learn About Carbohydrates, Fats, Proteins, Vitamins and Mineral Salts', N'Pending', N'https://www.youtube.com/watch?v=a-084pqI05U', N'Educational video for children to learn what it means to have healthy eating habits. Eating is the process of taking in food. This is how we obtain the necessary nutrients to survive and carry out daily activities. Children will learn about the characteristics of healthy eating and about the importance of nutrients. They will also find out which foods contain carbohydrates, fats also called lipids, proteins, water, vitamins and minerals salts. At the end of the video, children will have a look at healthy eating tips and advice. Enjoy your meal!' , N'2020-12-19 20:18:33', N'2020-12-31', 3, 5)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (18, N'MEAL PREP | 9 ingredients for flexible, healthy recipes + PDF guide', N'Pending', N'https://www.youtube.com/watch?v=vmdITEguAnE', N'My long awaited meal prep video is here! I do meal prep different than most because I prep ingredients over full meals for greater variety and flexibility in my meals throughout the week. Today, I''ll show you 9 ingredients that you can meal prep, as well as several healthy recipes for a little inspiration. But feel free to let your kitchen creativity run wild! I hope you guys enjoy these meal prep ideas.' , N'2021-04-04 09:18:33', N'2021-04-30', 3, 6)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (19, N'20 MIN FULL BODY WORKOUT - Beginner Version // No Equipment I Pamela Reif', N'Published', N'https://www.youtube.com/watch?v=UItWltVZZmE', N'A workout suitable for BEGINNERS.' , N'2021-01-01 19:18:33', N'2021-01-29', 4, 7)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (20, N'1 Hour No Repeat Mash Up// Strength + Cardio Workout', N'Published', N'https://www.youtube.com/watch?v=WcswMYBx2rA', N'It''s time for another epic Mash Up! This 1 hour total body workout combines some of my favorite strength and cardio exercises from recent workouts to create one serious sweat sesh. Be sure to workout at your own pace, listen to your body and challenge yourself! You will need dumbbells only for this total body workout so grab yours and let''s go!!' , N'2021-02-14 13:18:37', N'2021-03-17', 4, 8)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (21, N'9-minute HIIT Workout For Beginners to Start Your Fitness Journey', N'Published', N'https://www.youtube.com/watch?v=jWCm9piAwAU', N'Ready to get started on your health and fitness journey? Try this 9-minute HIIT workout for beginners and download the 8fit app for more workouts you can do at home (and all the yummy, healthy recipes you could possibly imagine).' , N'2020-11-11 19:30:33', N'2020-11-17', 4, 9)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (22, N'GOOD MORNING WORKOUT | 10 MIN | Beginner Friendly', N'Pending', N'https://www.youtube.com/watch?v=9g4z0gFlfpA', N'This morning workout is the perfect way to get your body moving. It''s not to intense so you can wake up and stay in your pyjamas. No Jumping or difficult exercises just big feel good moves to get the blood pumping.' , N'2020-10-27 14:14:33', N'2020-10-30', 4, 10)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (23, N'7 DAY CHALLENGE 7 MINUTE WORKOUT TO LOSE BELLY FAT - HOME WORKOUT TO LOSE INCHES Lucy Wyndham-Read', N'Pending', N'https://www.youtube.com/watch?v=yL_dE81O_mw', N'A qualified online trainer to get you the best results.' , N'2021-10-27 19:18:33', N'2021-11-17', 4, 13)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (24, N'15 MIN HAPPY DANCE WORKOUT - burn calories and smile / No Equipment I Pamela Reif', N'Pending', N'https://www.youtube.com/watch?v=Cw-Wt4xKD2s', N'This version is full of hits that were popular in the 2010s. From "Shape Of You" by Ed Sheeran, to "Try Me" by Jason Derulo and J-Lo .. all songs put a big smile on my face! Judging from the dance moves, I feel like we have a mixture between the 80s Dance Video & the Sexy Dance Workout! Aaaand: don''t underestimate the last song! I let my Instagram Community chose which song + mood they want to have. And the majority wanted to have "INTENSE" :D .. so this is the part you''ll get super sweaty. But the moves are not complicated - don''t be scared.' , N'2020-01-14 12:18:12', N'2020-03-17', 4, 14)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (25, N'5-Ingredient Healthy Recipes in 15 Minutes', N'Published', N'https://www.youtube.com/watch?v=CRd8dHqU1AM', N'Workout at Home Videos, Healthy Recipes and Guided Meditations. All in one app!' , N'2021-05-29 11:11:11', N'2021-06-03', 5, 1)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (26, N'28 Healthy Recipes For February • Tasty Recipes', N'Published', N'https://www.youtube.com/watch?v=JEZ108gzzYE', N'We’re mindful of how the current coronavirus outbreak might be affecting your access to stores and general grocery items. Please know that many of these videos were filmed before the outbreak and additional new videos filmed by our producers, working safely from their homes, may look and feel different than what you’re accustomed to. We don’t expect you to make all of our recipes now, but we hope you’ll find it a joyful distraction that’s entertaining, inspiring, and worth saving for a future food challenge or meal shared with friends.' , N'2021-06-25 16:18:33', N'2021-07-01', 5, 2)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (27, N'Healthy Recipes With Gordon Ramsay', N'Published', N'https://www.youtube.com/watch?v=YCU2Iyr6Xts', N'Simple & delicious healthy recipes!' , N'2021-02-27 17:19:37', N'2021-08-09', 5, 3)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (28, N'WHAT I EAT IN A DAY | healthy recipes, balanced & realistic', N'Pending', N'https://www.youtube.com/watch?v=63pbGq52ggo', N'A realistic WHAT IN EAT IN A DAY video!! Highlighting some of my easy & healthy recipes and my ideal version of a balanced day of eats :) Comment below if you want to the recipes to anything that I missed! Love you guys and make sure to subscribe if you are new :)' , N'2021-07-31 16:18:35', N'2021-09-05', 5, 4)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (29, N'5 Healthy Chicken Recipes You Can Make For Dinner', N'Pending', N'https://www.youtube.com/watch?v=4kLpo6TjTPU', N'5 healthy chicken recipes you can make for dinner!' , N'2021-08-20 00:12:34', N'2021-10-07', 5, 10)
+INSERT INTO [dbo].[Video] ([Id], [Title], [Status], [Link], [Description], [SubmittedOn], [DatePublished], [CategoryId], [MemberId]) VALUES (30, N'7 Healthy And Low Carb Recipes • Tasty', N'Pending', N'https://www.youtube.com/watch?v=GDS1OVF46UY', N'Check out these healthy and low carb recipes! About Tasty: The official YouTube channel of all things Tasty, the world''s largest food network. From recipes, world-class talent, and top-of-the-line cookware, we help connect food lovers in every way they interact with food.' , N'2021-11-21 04:37:59', N'2021-12-17', 5, 7)
+SET IDENTITY_INSERT [dbo].[Video] OFF
+
+
+CREATE TABLE [dbo].[Video_Comment] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Comments]   VARCHAR (200) NOT NULL,
+    [CommentDate] DATETIME NOT NULL,
+    [Status] 	VARCHAR(100) 	NOT NULL,
+    [MemberID] INT NOT NULL,
+    [VideoID] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberID]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([VideoID]) REFERENCES [dbo].[Video] ([Id]),
+);
+
+
+SET IDENTITY_INSERT [dbo].[Video_Comment] ON
+INSERT INTO [dbo].[Video_Comment] ([Id], [Comments], [CommentDate], [Status], [MemberID], [VideoID] ) VALUES (1 , 'This is a highly recommended video' , N'2020-04-14 00:02:24', N'Published', 1 , 1)
+INSERT INTO [dbo].[Video_Comment] ([Id], [Comments], [CommentDate], [Status],  [MemberID], [VideoID] ) VALUES (2 , 'Wow, it is so informative' , N'2020-05-14 00:02:24',  N'Published', 2 , 2)
+INSERT INTO [dbo].[Video_Comment] ([Id], [Comments], [CommentDate], [Status],  [MemberID], [VideoID] ) VALUES (3 , 'My weight did not improve after a month' ,N'2020-05-14 00:12:24', N'Published', 3 , 3)
+INSERT INTO [dbo].[Video_Comment] ([Id], [Comments], [CommentDate], [Status],  [MemberID], [VideoID] ) VALUES (4 , 'It was okey', N'2020-05-24 00:02:24', N'Pending', 4 , 4)
+INSERT INTO [dbo].[Video_Comment] ([Id], [Comments], [CommentDate], [Status],  [MemberID], [VideoID] ) VALUES (5 , 'I wish there were better ones' ,N'2020-05-17 00:02:24',  N'Pending', 5 , 5)
+INSERT INTO [dbo].[Video_Comment] ([Id], [Comments], [CommentDate], [Status],  [MemberID], [VideoID] ) VALUES (6 , 'Is there a part 2?' , N'2020-05-14 00:02:24', N'Pending', 6 , 5)
+SET IDENTITY_INSERT [dbo].[Video_Comment] OFF
+
+CREATE TABLE [dbo].[Video_Rating] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Ratings] INT NOT NULL,
+    [MemberID] INT NULL,
+    [VideoID] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([VideoId]) REFERENCES [dbo].[Video] ([Id]),
+);
+
+
+SET IDENTITY_INSERT [dbo].[Video_Rating] ON
+INSERT INTO [dbo].[Video_Rating] ([Id], [Ratings], [MemberID], [VideoID] ) VALUES (1 , 1 , 1, 1)
+INSERT INTO [dbo].[Video_Rating] ([Id], [Ratings], [MemberID], [VideoID] ) VALUES (2 , 2 , 2,2 )
+INSERT INTO [dbo].[Video_Rating] ([Id], [Ratings], [MemberID], [VideoID] ) VALUES (3 , 3 , 3, 3)
+INSERT INTO [dbo].[Video_Rating] ([Id], [Ratings], [MemberID], [VideoID] ) VALUES (4 , 4 , 4, 4)
+INSERT INTO [dbo].[Video_Rating] ([Id], [Ratings], [MemberID], [VideoID] ) VALUES (5 , 5 , 5, 5)
+INSERT INTO [dbo].[Video_Rating] ([Id], [Ratings], [MemberID], [VideoID] ) VALUES (6 , 5, 6, 5)
+SET IDENTITY_INSERT [dbo].[Video_Rating] OFF
+
+
+CREATE TABLE [dbo].[Article] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Title]       VARCHAR (80) NOT NULL,
+    [Content]     TEXT         NOT NULL,
+    [Status]      VARCHAR (100)  NOT NULL,
+    [SubmittedOn] DATETIME     NOT NULL,
+    [PublishedOn] DATETIME     NULL,
+    [ai_flag]     VARCHAR(100) NOT NULL,
+    [CategoryId]  INT          NOT NULL,
+    [MemberId]    INT          NOT NULL,
+    [Picture]    VARCHAR(100) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([Id])
+);                                                               
+
+SET IDENTITY_INSERT [dbo].[Article] ON         
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (1, N'Importance of mental wellness', N'Mentally well people are positive, self-assured and happy. They are in control of their thoughts, emotions and behaviour. This enables them to handle challenges, build strong relationships and enjoy life.', N'Published', N'2020-01-25 10:10:10', N'2020-01-26 10:10:10', N'No', 1, 1)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId])
+VALUES (2, N'Benefits of rehab.', N'The benefits are: 1)Lessens pain so you can become more active and enjoy life without suffering from discomfort.
+2) Helps restore you to your pre-illness or accident function and mobility – you can move more easily and with less pain. 3)Strengthens your muscles so you are less at risk of falls or accidents.
+4)Improves your coordination for better mobility and easier movement. And many more!', N'Published', N'2020-03-30 15:20:10', N'2020-04-01 02:10:10', N'No', 2, 2)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (3, N'How Carrots Can Benefit Your Health', N'Carrots are rich in vitamins, minerals, and fiber. They are also a good source of antioxidants. Antioxidants are nutrients present in plant-based foods. They help the body remove free radicals, unstable molecules that can cause cell damage if too many accumulate in the body. Free radicals result from natural processes and environmental pressures. The body can eliminate many free radicals naturally, but dietary antioxidants can help, especially when the oxidant load is high.', N'Pending', N'2020-02-25 11:10:10', N'2020-02-27 13:10:10', N'No', 3, 2)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (4, N'Why is physical activity so important for health and well-being?', N'It’s a natural mood lifter.
+Regular physical activity can relieve stress, anxiety, depression and anger. You know that "feel good sensation" you get after doing something physical? Think of it as a happy pill with no side effects! Most people notice they feel better over time as physical activity becomes a regular part of their lives.
+It keeps you physically fit and able.
+Without regular activity, your body slowly loses its strength, stamina and ability to function properly. It’s like the old saying: you don’t stop moving from growing old, you grow old from stopping moving. Exercise increases muscle strength, which in turn increases your ability to do other physical activities. ', N'Published', N'2020-03-14 00:02:24', N'2020-03-17 00:02:24', N'No', 4, 4)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (5, N'Healthy Snack', N'1)YOGHURT MIXED WITH HEALTHY FRUITS: You can add strawberries, mangoes, apple, banana, berries or grapes in a bowl of yoghurt and have a sweet snack whenever you crave for sugar. Healthy gut bacteria present in yoghurt is helpful in your weight loss journey. Also, adding different fruits will provide various health benefits. 2)SUPER-SEEDS PUDDING: This is a healthy way to satiate your sweet cravings. You can make chia-seeds pudding, flax-seeds pudding and Sabja or basil seeds pudding. These super-seeds are also known for the most effective appetite suppressants.', N'Published', N'2020-02-25 11:10:10', N'2020-02-27 13:10:10', N'No', 5, 2)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status] , [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (6, N'Importance of fitness', N'Being fit allows people to be well , self-assured and happy. They are in control of their thoughts, emotions and behaviour. This enables them to handle challenges, build strong relationships and enjoy life.', N'Pending', N'2022-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 5, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (7, N'How are fruits beneficial', N'Eating enough fruits will help you have better nutrition and will improve your general wellbeing.This is also help you gain better mobility as you will feel less tired and more productive and you will feel lighter.', N'Pending', N'2022-02-23 10:10:11', N'2022-03-26 11:11:11', N'No', 5, 4)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (8, N'Why you should sleep more', N'By having enough sleep you will be able to focus more in the tasks that you have to complete that day , more over you will not be distracted easily by headaches and will ultimately feel great.', N'Pending', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 4, 1)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (9, N'Best gyms locations', N'In the north there are multiple gyms that you can try , first we have the BEST GYM 101 which offers a wide array of classes to help individuals achieve the best version of themselves, there are also free trials available and you can apply for membership to receive better discounts.', N'Published', N'2022-05-24 10:10:13', N'2022-04-25 11:11:11', N'No', 2, 3)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (10, N'Easy to make healthy snacks', N'Oats are very versatile and can transformed to many dishes, for example , cooking oatmeal can allow you to add nuts which is high in fibre and good more your overall wellbeing', N'Published',  N'2022-02-23 10:10:11', N'2022-05-27 11:11:11', N'No', 4, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (11, N'Easy workouts', N'Do you know that walking actually helps your body to be more active and fit , by walking you can allow your muscles to be relaxed and help you to destress from a long tiring week at work.', N'Published', N'2022-02-23 10:10:11', N'2022-04-26 11:11:11', N'No', 3, 2)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (12, N'Do you know that you have to keep your mind healthy', N'Your mind has to be kept active, and there are games that you can try to help your mind be active for example , sudoku, word searches and puzzles games all of which challenges your brain muslces and helps one to be mentally stronger.', N'Published',  N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 2, 1)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (13, N'Are there other alternatives to coffee', N'You can try tea or even matcha as theu have antioxidants which helps the body and at the same time cleanses your body from any chemicals it may have consumed, these are some suggestions however, do eat in moderation as everything that is consumed too much is bad for your health', N'Published',  N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 1, 3)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (14, N'How to have better mental health', N'It is good to have basic self care habits such as during the things that you love at least one hour in a day. For example listening to music , or journalling or even baking. Doing things that make you happy.', N'Pending', N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 2, 4)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (15, N'What are healthy carbohydrates', N'You make consider healthy alternatives for eating carbohydrates such as considering brown rice, or wholegrain noodles these of which are higher in fibre and aids in digestion ', N'Pending', N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 4, 3)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) 
+VALUES (16, N'What are the healthy diets available', N'There are several diets such as the keto diet , intermittent diet , vegan diet , raw food diet which all depends on which is most suitable for your lifestyle as many people may have commitment issues when it comes to being disciplined in a diet.', N'Published', N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 5, 2)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (17, N'What are some habits to keep healthy', N'You can record down the your schedule and set reminders on your phone , there are several applications that you can follow online to be able to track your diet and reward yourself according. You can include a physical activity in your week so that is more balanced and will of course make your body stronger', N'Published', N'2020-02-23 10:10:11', N'2021-02-25 11:11:11', N'No', 1, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (18, N'Superfoods', N'Here are some superfoods available at the supermarket that is accessible. First, we have  beetroot , it is very good for the blood and it can be made into your favourite smoothie. Next we have the cranberries which helps aid in digestion and it can help regulate your sugar levels.', N'Published', N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 3, 1)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (19, N'Reasons to improve core strength', N'A stronger core helps prevent injuries such as having risks to injuries when being exposed to certain sports such as running and jumping', N'Pending', N'2020-02-23 10:10:11', N'2020-02-25 11:11:11', N'No', 2, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (20, N'How to improve your sleep ', N'Avoid caffine at leazst 5 hours before you sleep and stay away from electronic devices before bedtime , do make time to allow your body to rest such as doing some meditation and some eye rests.', N'Published', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 4, 2)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (21, N'Daily Vitamins that are good for your body', N'You will need to consume vitamin c everyday as this vitamin will help you decrease your risk of getting flu. You can get vitamins as a supplement or even in fruits such as oranges', N'Published', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 3, 3)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (22, N'Quick Healthy guide', N'Do ensure you consume the right amount of nuitrients you need for the day and you may consult a dietician for your daily dietary needs furthermore you need to keep moving and have enough sleep', N'Published', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 1, 4)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (23, N'Functional Foods', N'Some functional foods are Chia, Cranbarries, Flaxseed, Soy products, Tumeric , Green tea which decreases the risk of chronic diseases', N'Published', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 3, 4)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (24, N'Prebiotic Foods', N'Prebiotic is a good bateria which helps with digestion some food that contain prebiotic are green bananas, apples, garlic, onion , cabbage all for a healthy gut.', N'Published', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 2, 1)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (25, N'Healthy eating pyramid', N'Bottom section is for the vegatbles and whole grains , next we have the poultry and nuts and seeds and fish , followed by daily prodcucts with at least 1-2 servings a day and last but not least refined grains', N'Published', N'2022-02-23 10:10:11', N'2022-02-25 11:11:11', N'No', 2, 5)
+
+
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (26, N'Finance and Expenses', N'worldcom ex-boss launches defence lawyers defending former worldcom chief bernie ebbers against a battery of fraud charges have called a company whistleblower as their first witness.  cynthia cooper  worldcom s ex-head of internal accounting  alerted directors to irregular accounting practices at the us telecoms giant in 2002. her warnings led to the collapse of the firm following the discovery of an $11bn (Â£5.7bn) accounting fraud. mr ebbers has pleaded not guilty to charges of fraud and conspiracy.  prosecution lawyers have argued that mr ebbers orchestrated a series of accounting tricks at worldcom  ordering employees to hide expenses and inflate revenues to meet wall street earnings estimates. but ms cooper  who now runs her own consulting business  told a jury in new york on wednesday that external auditors arthur andersen had approved worldcom s accounting in early 2001 and 2002. she said andersen had given a  green light  to the procedures and practices used by worldcom. mr ebber s lawyers have said he was unaware of the fraud  arguing that auditors did not alert him to any problems.  ms cooper also said that during shareholder meetings mr ebbers often passed over technical questions to the company s finance chief  giving only  brief  answers himself. the prosecution s star witness  former worldcom financial chief scott sullivan  has said that mr ebbers ordered accounting adjustments at the firm  telling him to  hit our books . however  ms cooper said mr sullivan had not mentioned  anything uncomfortable  about worldcom s accounting during a 2001 audit committee meeting. mr ebbers could face a jail sentence of 85 years if convicted of all the charges he is facing. worldcom emerged from bankruptcy protection in 2004  and is now known as mci. last week  mci agreed to a buyout by verizon communications in a deal valued at $6.75bn.', N'Pending', N'2022-01-25 11:11:11', N' 2022-02-23 10:10:11 ', N'Yes', 2, 5)
+
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (27, N'HardWare', N'lifestyle  governs mobile choice  faster  better or funkier hardware alone is not going to help phone firms sell more handsets  research suggests.  instead  phone firms keen to get more out of their customers should not just be pushing the technology for its own sake. consumers are far more interested in how handsets fit in with their lifestyle than they are in screen size  onboard memory or the chip inside  shows an in-depth study by handset maker ericsson.  historically in the industry there has been too much focus on using technology   said dr michael bjorn  senior advisor on mobile media at ericsson s consumer and enterprise lab.  we have to stop saying that these technologies will change their lives   he said.  we should try to speak to consumers in their own language and help them see how it fits in with what they are doing   he told the bbc news website.  for the study  ericsson interviewed 14 000 mobile phone owners on the ways they use their phone.  people s habits remain the same   said dr bjorn.  they just move the activity into the mobile phone as it s a much more convenient way to do it.   one good example of this was diary-writing among younger people  he said. while diaries have always been popular  a mobile phone -- especially one equipped with a camera -- helps them keep it in a different form. youngsters  use of text messages also reflects their desire to chat and keep in contact with friends and again just lets them do it in a slightly changed way. dr bjorn said that although consumers do what they always did but use a phone to do it  the sheer variety of what the new handset technologies make possible does gradually drive new habits and lifestyles. ericsson s research has shown that consumers divide into different  tribes  that use phones in different ways. dr bjorn said groups dubbed  pioneers  and  materialists  were most interested in trying new things and were behind the start of many trends in phone use.  for instance   he said   older people are using sms much more than they did five years ago.  this was because younger users  often the children of ageing mobile owners  encouraged older people to try it so they could keep in touch.  another factor governing the speed of change in mobile phone use was the simple speed with which new devices are bought by pioneers and materialists. only when about 25% of people have handsets with new innovations on them  such as cameras  can consumers stop worrying that if they send a picture message the person at the other end will be able to see it.  once this significant number of users is passed  use of new innovations tends to take off. dr bjorn said that early reports of camera phone usage in japan seemed to imply that the innovation was going to be a flop. however  he said  now 45% of the japanese people ericsson questioned use their camera phone at least once a month. in 2003 the figure was 29%. similarly  across europe the numbers of people taking snaps with cameras is starting to rise. in 2003 only 4% of the people in the uk took a phonecam snap at least once a month. now the figure is 14%. similar rises have been seen in many other european nations. dr bjorn said that people also used their camera phones in very different ways to film and even digital cameras.  usage patterns for digital cameras are almost exactly replacing usage patterns for analogue cameras   he said. digital cameras tend to be used on significant events such as weddings  holidays and birthdays. by contrast  he said  camera phones were being used much more to capture a moment and were being woven into everyday life.', N'Pending', N'2022-01-25 11:11:11', N' 2022-02-23 10:10:11 ', N'Yes', 2, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (28, N'Law', N'budget to set scene for election gordon brown will seek to put the economy at the centre of labour s bid for a third term in power when he delivers his ninth budget at 1230 gmt. he is expected to stress the importance of continued economic stability  with low unemployment and interest rates. the chancellor is expected to freeze petrol duty and raise the stamp duty threshold from Â£60 000. but the conservatives and lib dems insist voters face higher taxes and more means-testing under labour.  treasury officials have said there will not be a pre-election giveaway  but mr brown is thought to have about Â£2bn to spare.  - increase in the stamp duty threshold from Â£60 000   - a freeze on petrol duty   - an extension of tax credit scheme for poorer families   - possible help for pensioners the stamp duty threshold rise is intended to help first time buyers - a likely theme of all three of the main parties  general election manifestos. ten years ago  buyers had a much greater chance of avoiding stamp duty  with close to half a million properties  in england and wales alone  selling for less than Â£60 000. since then  average uk property prices have more than doubled while the starting threshold for stamp duty has not increased. tax credits as a result  the number of properties incurring stamp duty has rocketed as has the government s tax take. the liberal democrats unveiled their own proposals to raise the stamp duty threshold to Â£150 000 in february.  the tories are also thought likely to propose increased thresholds  with shadow chancellor oliver letwin branding stamp duty a  classic labour stealth tax . the tories say whatever the chancellor gives away will be clawed back in higher taxes if labour is returned to power. shadow treasury chief secretary george osborne said:  everyone who looks at the british economy at the moment says there has been a sharp deterioration in the public finances  that there is a black hole   he said.  if labour is elected there will be a very substantial tax increase in the budget after the election  of the order of around Â£10bn.   but mr brown s former advisor ed balls  now a parliamentary hopeful  said an examination of tory plans for the economy showed there would be a Â£35bn difference in investment by the end of the next parliament between the two main parties. he added:  i don t accept there is any need for any changes to the plans we have set out to meet our spending commitments.   for the lib dems david laws said:  the chancellor will no doubt tell us today how wonderfully the economy is doing   he said.  but a lot of that is built on an increase in personal and consumer debt over the last few years - that makes the economy quite vulnerable potentially if interest rates ever do have to go up in a significant way.  snp leader alex salmond said his party would introduce a Â£2 000 grant for first time buyers  reduce corporation tax and introduce a citizens pension free from means testing. plaid cymru s economics spokesman adam price said he wanted help to get people on the housing ladder and an increase in the minimum wage to Â£5.60 an hour.', N'Pending', N'2022-01-25 11:11:11', N' 2022-02-23 10:10:11 ', N'Yes', 2, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (29, N'Football', N'can smith work scottish wonders  the worst kept secret in scottish football was revealed on thursday when walter smith was named as the new national manager.  from the moment berti vogts  miserable tenure in charge of scotland ended  the former rangers and everton boss has been the overwhelming favourite for the post. but is smith the man for what must be one of the hardest jobs in football  the 56-year-old takes over at a time when the national side is in the doldrums. scotland have not reached a major finals since the world cup in 1998 and reaching germany 2006 looks near impossible  having picked up just two points from the opening three games in the qualifying race. and the fifa rankings see scotland listed at an all time low of 77th  below the likes of estonia  ghana  angola and thailand. scotland are not blessed with quality players with experience at the top level  so smith will have to get the best out of meagre resources. smith s track record make impressive reading and he is widely respected within the game. the man who was alex ferguson s assistant when scotland played at the 1986 world cup won seven league titles with rangers. and his appointment has been widely endorsed by many of the games  top names  including ferguson and graeme souness  who took him to ibrox as his assistant in 1986. characters like souness  ferguson and current ibrox manager alex mcleish all cite smith s experience and his expansive knowledge of the scottish game.  much was made of vogts  inability to express himself to the players and media. that will certainly not be the case with smith. the former dundee united and dumbarton full-back is from the managerial old school - straight talking and never slow to let players know when he expects better (often with the use of some colourful invective). but it should be remembered vogts came to scotland with an impressive curriculum vitae - a world cup winner as a player and a european championships winner as a manager. smith will inherit the same problems vogts had - a callow squad of players with no exceptional talents. and it remains to be seen if smith will experience the rash of call-offs that blighted so much of vogts  preparation work. a fresh start for the scottish national team was imperative and smith is widely regarded as a safe pair of hands. but will a safe pair of hands be enough when the adroit hands of a magician might be required...', N'Pending', N'2022-02-23 10:10:11', N'2022-01-25 11:11:11', N'Yes', 2, 5)
+
+INSERT INTO [dbo].[Article] ([Id], [Title], [Content], [Status], [SubmittedOn], [PublishedOn], [ai_flag], [CategoryId], [MemberId]) VALUES (30, N'Celebrities', N'dj double act revamp chart show dj duo jk and joel are taking over bbc radio 1 s flagship chart show on sunday  adding showbiz news  celebrity interviews and between-song banter.  they hope to boost ratings for the long-running show  which has been overtaken in popularity by independent radio s hit 40 uk rundown.  radio 1 s chart show is an institution and remains the station s single most popular show   says jk  also known as jason king.  for years people have been tuning in at four o clock with their tape recorders ready to record their favourite tunes. not that i ever did that.  but things have moved on a lot now so it was time for a change.   that change involved ejecting previous host wes butters and relocating king and dj partner joel ross from their weekend afternoon radio 1 slot. the pair have worked together for a decade - meeting on viking radio in hull before moving to manchester station key 103 and winning two sony radio awards. they also presented gadget series playboyz and car show motor maniacs for cable tv channel granada men and motors  and pure soap on bbc three.  on the revamped chart show their cheeky  laddish banter will punctuate star interviews and competitions  film and dvd charts plus a look at future single releases  in addition to the singles chart itself.  the chart rundown is no longer the only point of the programme   says ross.  the show used to be the only way to discover who was in the top 40. now you can just click on the internet to find that out  so the show has plenty of extra items too.  the show s reduced reliance upon the top 40 also reflects the fact that music fans are now more likely to download songs in digital format rather than buy them on compact disc  vinyl or cassette.   i personally buy downloads rather than cd singles   says 27-year-old ross.  even my grandma can download songs now. jk is still struggling with the technology  though.   but it s premature for people to say that the singles chart is dead   ross adds.  while sales of singles on traditional formats are down  interest in songs has been revived by download sales  which will be incorporated into our main chart rundown from april.  music fans still want to know what is the most popular song of the week.   ross will be plumping for chart success from rapper verbalicious and the stereophonics on sunday  while king is more of an r&b and dance music fan.  so listeners will get the advantage of both our music tastes   says king  30  who describes outgoing host butters as  an extremely professional and competent broadcaster .   the advantage joel and i have is that we re a double act  with a rapport between us that makes the show much more interactive   king says.  wes has a great broadcasting career ahead of him. and if not  i could always use a cleaner   he jokes. ross says the pair have done their best to ignore the weight of expectation placed upon the revamped show.  other people can worry about that  we are going to continue doing what we do well   he says.  at the end of the day this is a radio show that is meant to be entertaining. nobody died.', N'Pending', N'2022-02-23 10:10:11', N'2022-01-25 11:11:11', N'Yes', 2, 5)
+
+SET IDENTITY_INSERT [dbo].[Article] OFF
+
+
+CREATE TABLE [dbo].[Article_Comment] (
+    [Id]            INT          IDENTITY (1, 1) NOT NULL,
+    [ArticleId]     INT          NOT NULL,
+    [Content]       TEXT         NOT NULL,
+    [MemberId]      INT          NOT NULL,
+    [DatePublished] DATETIME     NOT NULL,
+    [Status] 	VARCHAR(100) 	NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([ArticleId]) REFERENCES [dbo].[Article] ([Id]),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id])
+);
+
+SET IDENTITY_INSERT [dbo].[Article_Comment] ON
+
+
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (1, 1, N'This is awesome!', 5, N'2020-01-27 08:08:08', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (2, 1, N'This is cool!', 5, N'2020-01-27 08:08:08', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (3, 1, N'This is really interesting!', 5, N'2020-01-27 08:08:08', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (4, 1, N'This is so boring just like you', 5, N'2020-01-27 08:08:08', 'Pending')
+
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (5, 2, N'I cant wait to try this out!', 3, N'2020-04-02 09:09:09', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (6, 2, N'This is so useful!', 3, N'2020-04-02 09:09:09', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (7, 2, N'cant believe i never came accross this before!', 3, N'2020-04-02 09:09:09', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (8, 2, N'cant believe You actually didi this type of nonsense. you are dumb honestly', 3, N'2020-04-02 09:09:09', 'Pending')
+
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (9, 3, N'Wah, I did not know this!!', 4, N'2020-02-28 22:10:10', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (10, 3, N'Wah, This is a very useful tip!!', 4, N'2020-02-28 22:10:10', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (11, 3, N'Wah, Amazing Job. Congrats to you!!', 4, N'2020-02-28 22:10:10', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (12, 3, N'All of this was just pure luck, you honestly didnt deserve it', 4, N'2020-02-28 22:10:10', 'Pending')
+
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (13, 4, N'Hmm.. have not tried this myself so cannot say much', 1, N'2020-03-18 09:09:09', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (14, 4, N'Thanks a lot for the tip', 1, N'2020-03-18 09:09:09', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (15, 4, N'Bro you are awesome. ', 1, N'2020-03-18 09:09:09', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (16, 4, N'I dont see the point in this. go "sleep"', 1, N'2020-03-18 09:09:09', 'Pending')
+
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (17, 5, N'This is shocking! Did not know that food contains so much calories!', 5 , N'2020-02-28 22:10:10', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (18, 5, N'You know, I hate this and i dont like this. This shouldnt exist and so should you', 5 , N'2020-02-28 22:10:10', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (19, 5, N'This is going to be life changing!', 5 , N'2020-02-28 22:10:10', 'Published')
+INSERT INTO [dbo].[Article_Comment] ([Id], [ArticleId], [Content], [MemberId], [DatePublished], [Status]) VALUES (20, 5, N'what is the point of this even. Delete this or else..', 5 , N'2020-02-28 22:10:10', 'Pending')
+
+
+SET IDENTITY_INSERT [dbo].[Article_Comment] OFF
+
+
+CREATE TABLE [dbo].[Article_Rating] (
+    [Id]            INT          IDENTITY (1, 1) NOT NULL,
+    [ArticleId]     INT          NOT NULL,
+    [MemberId]      INT          NULL,
+    [Ratings] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([ArticleId]) REFERENCES [dbo].[Article] ([Id]),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id])
+);
+
+SET IDENTITY_INSERT [dbo].[Article_Rating] ON
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (1, 1,  13, 5)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (2, 2,  4, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (3, 3, 5, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (4, 4, 1, 4)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (5, 5, 4, 5)
+
+
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (11, 6,  13, 5)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (12, 7,  4, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (13, 8, 5, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (14, 9, 1, 4)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (15, 10, 4, 5)
+
+
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (16, 11,  3, 5)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (17, 12,  4, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (18, 13, 5, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (19, 14, 1, 4)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (20, 15, 4, 5)
+
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (21, 16,  13, 5)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (22, 17,  4, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (23, 18, 5, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (24, 19, 1, 4)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (25, 20, 4, 5)
+
+
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (26, 1, 3, 5)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (27, 2, 4, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (28, 3, 5, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (29, 4, 1, 4)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (30, 5, 4, 5)
+
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (31, 1, 13, 5)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (32, 1, 4, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (33, 1, 5, 3)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (34, 1, 1, 4)
+INSERT INTO [dbo].[Article_Rating] ([Id], [ArticleId], [MemberId], [Ratings]) VALUES (35, 2, 4, 5)
+
+SET IDENTITY_INSERT [dbo].[Article_Rating] OFF
+
+
+CREATE TABLE [dbo].[Question] (
+    [Id]            	INT          	IDENTITY (1, 1) NOT NULL,
+    [MemberID]     	INT          	NOT NULL,
+    [DateCreated] 	DATETIME         	NOT NULL,
+    [Content]       VARCHAR(200)    NOT NULL,
+    [CategoryID] 	INT 		NOT NULL,
+    [Status] VARCHAR(100) NOT NULL,	
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([Id])
+);
+
+SET IDENTITY_INSERT [dbo].[Question] ON
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (1, 1, '2021-06-20 01:02:03', N'How to reduce diabetes onset?', 3, 'Published')
+
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (2, 1, '2021-07-21 02:03:04', N'What is the hidden danger in sugar?', 3, 'Published')
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (3, 2, '2021-08-22 03:04:05', N'Diet vs exercise. Which is better?', 4, 'Published')
+
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (4, 2, '2021-09-23 04:05:06', N'What is cholesterol and its risks?',3, 'Published')
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (5, 3, '2021-10-24 05:06:07', N'What are the ways u can exercise to stay healthy?', 5, 'Published')
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (6, 3, '2021-11-25 06:07:08', N'How to eat healthy with good food?', 3, 'Published')
+
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (7, 1, '2021-11-25 06:07:08', N'How to exercise correctly?', 4, 'Published')
+
+INSERT INTO [dbo].[Question] ([Id], [MemberID], [DateCreated], [Content], [CategoryID], [Status]) VALUES (8, 1, '2021-11-25 06:07:08', N'What can I eat to cut down carbs?', 3, 'Published')
+
+
+SET IDENTITY_INSERT [dbo].[Question] OFF
+
+
+CREATE TABLE [dbo].[Question_Rating] (
+    [Id]            INT          IDENTITY (1, 1) NOT NULL,
+    [QuestionId]     INT          NOT NULL,
+    [MemberId]      INT          NULL,
+    [Ratings] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([QuestionId]) REFERENCES [dbo].[Question] ([Id]),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id])
+);
+
+SET IDENTITY_INSERT [dbo].[Question_Rating] ON
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (1, 1,  1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (2, 1,  2, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (3, 3, 3, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (4, 4, 1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (5, 5, 1, 5)
+
+
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (6, 1,  1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (7, 1,  2, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (8, 3, 3, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (9, 4, 1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (10, 5, 1, 5)
+
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (11, 1,  1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (12, 1,  2, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (13, 3, 3, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (14, 4, 1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (15, 5, 1, 5)
+
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (16, 1,  1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (17, 1,  2, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (18, 3, 3, 3)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (19, 4, 1, 5)
+INSERT INTO [dbo].[Question_Rating] ([Id], [QuestionId], [MemberId], [Ratings]) VALUES (20, 5, 1, 5)
+
+
+SET IDENTITY_INSERT [dbo].[Question_Rating] OFF
+
+
+CREATE TABLE [dbo].[Answer] (
+    [Id]            	INT          IDENTITY (1, 1) NOT NULL,
+    [MemberID]     	INT          	NOT NULL,
+    [AnsweredDate]      DATETIME        NOT NULL,
+    [Description]       VARCHAR(1000)    NOT NULL,
+    [QuestionID]        INT   		NOT NULL,
+    [Status] VARCHAR(100) NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([QuestionID]) REFERENCES [dbo].[Question] ([Id])
+);
+SET IDENTITY_INSERT [dbo].[Answer] ON
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (1, 1,  N'2020-06-24 09:09:09', N'You are so terrible! HAHA', 1, N'Pending')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (2, 2, N'2020-06-24 10:10:10', N'Be more active and do more workout!',1,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (3, 3, N'2020-06-24 12:10:10', N'Replace sweet drinks with plain water',1,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (4, 4, N'2020-06-24 13:10:10', N'You must be so fat',1,N'Pending')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (5, 1, N'2020-06-24 22:10:10', N'Try to replace white rice with whole grain or healthier choice rice',1,N'Pending')
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (6, 1,  N'2020-08-25 22:10:10', N'Too much sugar and lead to diabetes, heart attack and even cancer.',2,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (7, 1,  N'2020-08-26 22:10:10', N'New research says too much sugar is killing us and it can lead to diabetes, heart attacks and cancer',2,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (8, 1,  N'2020-08-27 22:10:10', N'What are the risks of hidden sugars? Hidden Sugar comes in many forms Certain types of sugar have been linked to diabetes, cardiovascular disease, hypertension, certain types of cancer, insomnia, obesity, metabolic syndrome just to name a few.',2,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (9, 1,  N'2020-08-28 22:10:10', N'There is this harmful sugar name fructose it will cause u to feel less full after eating',2,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (10, 1,  N'2020-08-29 22:10:10', N'Sugar can cause pimple too... i think',2,N'Published')
+
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (11, 13,  N'2020-08-23 08:08:08', N'It is best to exercise 4-5 times weekly in order to maintain a healthy lifestyle alongside if healthy diet',3,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (12, 1,  N'2020-08-24 08:08:08', N'Diet easier! haha..',3,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (13, 2,  N'2020-08-25 08:08:08', N'Try HIIT! u can burn many calories',3,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (14, 3,  N'2020-08-26 08:08:08', N'I will go for exercise, definitely...',3,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (15, 1,  N'2020-08-27 08:08:08', N'Are you an active person? if so, probabbly u wanna try to start slow with workout',3,N'Published')
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (16, 1,  N'2020-10-25 09:09:09', N'There are 2 types of cholestrol, in order to decrease or maintain the bad cholestrol, it is best to exercise 2-3 times per week and eat clean.', 4,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (17, 1,  N'2020-10-26 09:09:09', N'It can cause heart attack! Thats what happened to my uncle!',4,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (18, 1,  N'2020-10-26 10:09:09', N'The biggest influence on blood cholesterol level is the mix of fats and carbohydrates in your diet—not the amount of cholesterol you eat from food.',4,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (19, 2,  N'2020-10-26 11:09:09', N'Your risk may increase as you get older. Men 45 or older and women 55 or older have a higher risk of high cholesterol and heart disease...',4,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (20, 3,  N'2020-10-28 09:09:09', N'There are some warning sign.. like numbness, chest pain or shortness of breath.',4,N'Published')
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (21, 9, N'2020-10-25 02:10:10', N'You can try to do a slow jog for 30 mins if u are a beginner, this can help to assist you in getting a healtier lifestyle',5,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (22, 9, N'2020-10-25 02:10:10', N'You can try to do home cook food, so that u will consume less MSG',5,N'Published')
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (23, 9, N'2020-10-25 12:10:10', N'You can try doing yoga or HIIT, whichever that suits u!',5,N'Published')
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (24, 9, N'2020-10-26 02:10:10', N'You are so terrible! asked this type of questions!',5,N'Pending')
+
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (25, 9, N'2020-10-26 23:10:10', N'Maybe try rock climing?',5,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (26, 1, N'2020-11-26 10:10:10', N'You could search on some recipe about granola, i love to make this and eat when i am on diet',6,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (27, 2, N'2020-11-26 10:10:10', N'You might want to consider to change your diet to reduce non-fried food, so to eat healthly!',6,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (28, 2, N'2020-11-26 10:10:10', N'Use air fryer if u are craving for fried food',6,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (29, 1,  N'2020-11-25 09:09:09', N'You may want to explore this video, here is the link: https://www.youtube.com/watch?v=dBJry3tcX0Q', 7, N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (31, 2, N'2020-11-25 10:10:10', N'You could do some stretching before exercising',7,N'Published')
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (32, 2,  N'2020-11-25 22:10:10', N'Your question is so funny!',7,N'Pending')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status]) VALUES (33, 2, N'2020-11-25 10:10:10', N'Bread is also considered as carbs, you may want to try to replace with whole grain.',8,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (34, 10,  N'2020-11-25 09:09:09', N'Hmmm... you might want to try Emphasizes fruits, vegetables, whole grains, and fat-free or low-fat milk and milk products. Includes a variety of protein foods such as seafood, lean meats and poultry, eggs, legumes (beans and peas), soy products, nuts, and seeds in your meals.',8,N'Published')
+
+
+INSERT INTO [dbo].[Answer] ([Id], [MemberID],  [AnsweredDate], [Description], [QuestionID], [Status])  VALUES (35, 13,  N'2020-11-26 08:08:08', N'Granola is usually considered a healthy breakfast cereal.
+It’s a toasted mixture of rolled oats, nuts, and a sweetener like sugar or honey, though it can also include other grains, puffed rice, dried fruit, seeds, spices, and nut butters. Yet, some ingredients — such as chocolate, oils, and syrups — may be high in added sugars and fats.',8,N'Published')
+
+
+SET IDENTITY_INSERT [dbo].[Answer] OFF
+
+
+CREATE TABLE [dbo].[Supplement_Type] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Name]        VARCHAR(100) NOT NULL,
+    [Description] TEXT  NOT NULL,
+    [Benefits] TEXT  NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+);
+
+SET IDENTITY_INSERT [dbo].[Supplement_Type] ON
+
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (1, N'Fish Oil', N'Fish oil is oil derived from the tissues of oily fish. Fish oils contain the omega-3 fatty acids eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA), precursors of certain eicosanoids that are known to reduce inflammation in the body and improve hypertriglyceridemia. There has been a great deal of controversy in recent years about the role of fish oil in cardiovascular disease, with recent meta-analyses reaching different conclusions about its potential impact. The most promising evidence supports supplementation for prevention of cardiac death.', N'Researchers found that fish oil can help reduce the risk of diabetics from developing cognitive deficit because it protects the hippocampus cells from being destroyed. The study also showed that fish oil could help reduce oxidative stress, which plays a central role in the development of diabetes complications, both microvascular and cardiovascular.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (2, N'Krill Oil', N'Krill oil is an extract prepared from a species of Antarctic krill, Euphausia superba. Processed krill oil is commonly sold as a dietary supplement. Two components of krill oil are omega-3 fatty acids similar to those in fish oil, and phospholipid-derived fatty acids (PLFA), mainly phosphatidylcholine (alternatively referred to as marine lecithin).', N'Research shows that krill oil may be effective in reducing total cholesterol and triglycerides. It may also increase HDL (good) cholesterol levels.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (3, N'Calcium', N'Calcium supplements are salts of calcium used in a number of conditions. Supplementation is generally only required when there is not enough calcium in the diet. By mouth they are used to treat and prevent low blood calcium, osteoporosis, and rickets. By injection into a vein they are used for low blood calcium that is resulting in muscle spasms and for high blood potassium or magnesium toxicity.', N'Calcium is crucial in growing new bone and maintaining bone strength. Calcium supplements are standard for treating and preventing osteoporosis -- weak and easily broken bones -- and its precursor, osteopenia.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (4, N'Collagen', N'Collagen is the main structural protein in the extracellular matrix found in the body''s various connective tissues. As the main component of connective tissue, it is the most abundant protein in mammals, making up from 25% to 35% of the whole-body protein content. Collagen consists of amino acids bound together to form a triple helix of elongated fibril known as a collagen helix. It is mostly found in connective tissue such as cartilage, bones, tendons, ligaments, and skin.', N'Collagen supplements may improve skin health by reducing wrinkles and dryness. They may also help increase muscle mass, prevent bone loss, and relieve joint pain.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (5, N'Minerals', N'Minerals play a part in nearly every aspect of your health. In fact, your body uses them for many different important tasks, such as keeping your bones, heart and brain healthy. They also play an important role in hormone health, maintaining a healthy immune system and more.', N'Taking a good mineral supplement can help keep your bones and other organs healthy. It will help the body absorb minerals in your food. For example, chelated calcium and magnesium are highly absorbable and will help your body absorb the nutrients more easily. They will help the body absorb these substances better.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (6, N'Multivitamins', N'A multivitamin is a preparation intended to serve as a dietary supplement with vitamins, dietary minerals, and other nutritional elements. Such preparations are available in the form of tablets, capsules, pastilles, powders, liquids, or injectable formulations. Other than injectable formulations, which are only available and administered under medical supervision, multivitamins are recognized by the Codex Alimentarius Commission (the United Nations'' authority on food standards) as a category of food.', N'The vitamins and minerals in your multivitamin capsule can significantly reduce stress and depression symptoms.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (7, N'Probiotics', N'Probiotics are live microorganisms promoted with claims that they provide health benefits when consumed, generally by improving or restoring the gut flora. Probiotics are considered generally safe to consume, but may cause bacteria-host interactions and unwanted side effects in rare cases. There is some evidence that probiotics are beneficial for some conditions, but there is little evidence for many of the health benefits claimed for them.', N'The benefit of probiotics is as a promoter of good digestive health. A 2019 review explains that probiotic consumption has been shown to improve the immune, gastrointestinal and reproductive health systems in healthy adults. Eating foods rich in good bacteria and using probiotic supplements may help provide protection from inflammatory bowel diseases, including ulcerative colitis and Crohn’s disease. The evidence is stronger, however, for an improvement in ulcerative colitis, while Crohn’s disease may not benefit as greatly.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (8, N'Vitamin C', N'Vitamin C (also known as ascorbic acid and ascorbate) is a water-soluble vitamin found in various foods and sold as a dietary supplement. It is used to prevent and treat scurvy. Vitamin C is an essential nutrient involved in the repair of tissue, the formation of collagen, and the enzymatic production of certain neurotransmitters. It is required for the functioning of several enzymes and is important for immune system function. It also functions as an antioxidant.', N'Vitamin C supplements help to boost people''s immunity, as vitamin C is involved in many parts of the immune system. Vitamin C may help reduce the risk of heart disease, including high blood pressure, high triglyceride or LDL (bad) cholesterol levels, and low levels of HDL (good) cholesterol, which may reduce heart disease risk.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (9, N'Vitamin D', N'Vitamin D is a group of fat-soluble secosteroids responsible for increasing intestinal absorption of calcium, magnesium, and phosphate, and many other biological effects. In humans, the most important compounds in this group are vitamin D3 and vitamin D2', N'Research suggests that vitamin D may also play a role in reducing the risk of multiple sclerosis (MS), decreasing the chance of heart disease, reducing the likelihood of severe illnesses and support immune health.')
+INSERT INTO [dbo].[Supplement_Type] ([Id], [Name], [Description], [Benefits]) VALUES (10, N'Vitamin E', N'Vitamin E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. Vitamin E deficiency, which is rare and usually due to an underlying problem with digesting dietary fat rather than from a diet low in vitamin E, can cause nerve problems. Vitamin E is a fat-soluble antioxidant which may help protect cell membranes from reactive oxygen species.', N'Eye health is often neglected by a majority of people because. You stare are the computer screen all day, you use your smartphone before going to bed, you sleep late at night, these are elements that contribute towards decreased eye health, which in turn leads to disease and long term discomfort. Consuming vitamin E can do wonders here because it has potential to keep your eyes safe from developing symptoms associated with cataracts. Several studies in this regard have proved that combined with lutein and zeaxanthin, vitamin E delays cataract formation and early macular degeneration.')
+
+SET IDENTITY_INSERT [dbo].[Supplement_Type] OFF
+
+CREATE TABLE [dbo].[Supplements] (
+    [Id]          INT          IDENTITY (1, 1) NOT NULL,
+    [Name]        VARCHAR(4000) NOT NULL,
+    [Picture] VARCHAR(4000) NOT NULL,
+    [Description] TEXT  NOT NULL,
+    [Suggested Use] TEXT  NOT NULL,
+    [Warnings] TEXT  NOT NULL,
+    [SupplementTypeID] INT  NOT NULL,
+    [MemberId] INT NOT NULL,
+    [Status] VARCHAR(100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Member] ([Id]),
+    FOREIGN KEY ([SupplementTypeID]) REFERENCES [dbo].[Supplement_Type] ([Id]),
+);
+
+SET IDENTITY_INSERT [dbo].[Supplements] ON
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (1, N'California Gold Nutrition, Omega-3 Premium Fish Oil, 180 EPA / 120 DHA, 100 Fish Gelatin Softgels', N'31.jpg', N'Maintaining a diet with sufficient levels of “good fat” has been associated with maintaining an optimal lipid profile and health benefits such as a reduced risk of cardiovascular disease, healthy brain function and support of overall immune health.* California Gold Nutrition®️ Omega-3 Premium Fish Oil is a molecularly distilled, supercritical extraction that features 180 mg EPA and 120 mg DHA, per capsule, of globally sourced highly refined and concentrated natural fish oil that meets strict quality control standards. The fish gelatin softgels are porcine and bovine free and manufactured in California, USA with internationally sourced ingredients.', N'Take 2 softgels daily, with or without food. Best when taken as directed by a qualified healthcare professional.', N'Keep out of the reach of children. Pregnant or lactating women, the chronically ill, elderly, individuals under the age of 18, those taking prescription medications (e.g., blood thinners) as well as those with a physician-diagnosed medical condition should consult with a physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20ºC to 25ºC (68ºF to 77ºF). Improper storage conditions, such as extended exposure to direct sunlight, high heat, humidity, and freezing conditions can cause product degradation over time.', 1, 1, N'Published')
+
+
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (2, N'Solgar, Omega-3, EPA & DHA, Triple Strength, 950 mg, 100 Softgels', N'32.jpg', N'Omega 3 950 mg is Solgar’s highest concentration of the natural Omega 3 polyunsaturates EPA and DHA from cold-water fish. This formulation supports cardiovascular, joint, and skin health. It is molecularly distilled to remove mercury.', N'As a dietary supplement for adults, take one (1) softgel twice daily, preferably with a meal or as directed by a healthcare practitioner.', N'If you are pregnant, nursing, taking any medications, including blood thinners, planning any medical or surgical procedure or have any medical condition, please consult your healthcare practitioner before taking any dietary supplement. Discontinue use and consult your healthcare practitioner if any adverse reactions occur. Keep out of reach of children. Store at room temperature. Do not use if outer bottle seal is missing or damaged.', 1, 2,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (3, N'Now Foods, Ultra Omega-3, 500 EPA / 250 DHA, 90 Enteric Coated Softgels', N'33.jpg', N'Supportive but not conclusive research shows that consumption of EPA and DHA omega-3 fatty acids may reduce the risk of coronary heart disease.', N'Take 1 softgel 1 to 2 times daily with food.', N'Store in a cool, dry place after opening. For adults only. Consult physician if pregnant/nursing, taking medication, or have a medical condition. Keep out of reach of children. Natural color variation may occur in this product. Do not eat freshness packet. Keep in bottle. Those who experience nausea or reflux from other fish oils should find this enteric-coated, odor-controlled softgel easier to tolerate.', 1, 3,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status])VALUES (4, N'Jarrow Formulas, Krill Oil, 120 Softgels', N'34.jpg', N'Krill Oil is a low temperature extract of the abundant Antarctic krill (Euphausia superba) and it contains unique phospholipids rich in Omega-3 PUFAs (EPA and DHA). Emerging science demonstrates Krill Oil''s potential to enhance: Lipid Management - Krill Oil supports healthy blood lipids. Brain Nutrition - Krill Oil contains ultra-potent marine phospholipids that may help to maintain normal brain function. Metabolic Health - Krill Oil may improve glucose metabolism and the ability of the liver to respond to dietary challenges. MSO® is a special manufacturing technology by Enzymotec that ensures superior freshness and potency.', N'Take 2 softgels per day with a meal or as directed by your qualified healthcare professional.', N'Note: If you have a medical condition (especially seafood allergies or coagulopathy), are pregnant, lactating, trying to conceive, under the age of 18, taking medication (especially anticoagulants) or facing surgery, consult your healthcare professional before using this product. Store in a cool, dry place. Keep out of the reach of children.', 2, 4,N'Published')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (5, N'Now Foods, Neptune Krill 1000, Double Strength, 1,000 mg, 60 Softgels', N'35.jpg', N'Neptune Krill Oil (NKO)® is known for its unique fatty acid (FA) profile, which includes EPA and DHA, plus phospholipids. In addition, NKO® naturally has astaxanthin, a powerful free radical scavenger and immune-supporting carotenoid. Clinical studies have shown that NKO® can help to support joint comfort, healthy blood lipid levels already within normal range, and may help to maintain healthy feminine balance. The phospholipid-bound forms of EPA and DHA from krill oil have also demonstrated exceptionally high bioavailability. Neptune Krill Oil is manufactured under strict quality control standards. It is tested to be free of potentially harmful levels of contaminants such as PCBs, dioxins, mercury and other heavy metals. This double strength product has twice the krill oil (1,000 mg per softgel) than our regular strength product (500 mg per softgel).', N'Take 1 softgel 1 to 3 times daily with food.', N'For adults only. Consult physician if pregnant/nursing, taking medication (especially anticoagulant or anti-platelet medications), or have a medical condition. Do not use this product if you have a seafood allergy. Keep out of reach of children. Natural color variation may occur in this product. Store in a cool, dry place after opening.', 2, 5,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (6, N'California Gold Nutrition, Antarctic Krill Oil, with Astaxanthin, RIMFROST, Natural Strawberry & Lemon Flavor, 1,000 mg, 120 Fish Gelatin Softgels', N'36.jpg', N'Krill oil has gained attention not only for its Omega-3 fatty acids but for its bioavailability and Astaxanthin content.  Research suggests that the bioavailability of Krill oil may be high because much of the EPA and DHA are bound to phospholipids which aid in the efficient transfer of essential nutrients to the body’s cells.*  The Omega-3 Phospholipids and Astaxanthin in Krill oil help to support healthy heart, brain, eyes and liver functions.*', N'Take 1 softgel daily, with or without food. Best when taken as directed by a qualified healthcare professional.', N'Keep out of the reach of children. Pregnant or lactating women, the chronically ill, elderly, individuals under the age of 18, those taking prescription medications (e.g., blood thinners) as well as those with a physician-diagnosed medical condition should consult with a physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time.', 2, 6,N'Published')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (7, N'Natural Factors, Calcium Citrate, 350 mg, 90 Tablets', N'37.jpg', N'Helps in the development and maintenance of bones and teeth and reduces the risk of osteoporosis later in life. Calcium intake, when combined with sufficient vitamin D, a healthy diet and regular exercise, builds strong bones.', N'1 tablet, 1-4 times per day or as directed by a health professional.', N'As with any supplement, consult your health professional before use if you are pregnant, breastfeeding or trying to conceive, or if you are taking medication, have a medical condition or anticipate a surgery. Keep out of reach of children. Sealed for your protection. Do not use if seal is broken. For freshness, store in a cool, dry place.', 3, 7,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (8, N'Nature''s Plus, Source of Life, Animal Parade, Calcium, Children''s Chewable Supplement, Vanilla Sundae, 90 Animal-Shaped Tablets', N'38.jpg', N'Nutritional Support for Healthy Bones. It’s nutrition in disguise...thanks to its delicious flavor, kids won’t know Animal Parade Calcium is good for them. Animal Parade—the best calcium supplement for kids anywhere!', N'As a dietary supplement for children, two chewable tablets once daily.', N'Keep tightly closed in a cool, dry place. Keep out of reach of children.', 3, 8,N'Pending')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (9, N'Doctor''s Best, Calcium Bone Maker Complex with MCHCal and VitaMK7, 180 Capsules', N'39.jpg', N'Doctor''s Best Calcium Bone Maker® Complex with MCH-Cal™ and VitaMK7® provides key bone nutrients in their most bioactive forms. Vitamin C assists bone matrix formation. Vitamin D3 helps support the absorption of calcium in the bone, while vitamin K2 helps direct the calcium to the bones. MCH-Cal™ contains natural elements founds in healthy bone including calcium, phosphorus, and type 1 collagen. Calcium helps support the muscles, nerves and blood vessels to move blood throughout the body that effect almost every function of the human body. Collagen helps build and support bone matrix and connective tissue. MCH-Cal™ helps support optimal bone mineral composition and overall bone health.', N'Take three (3) capsules twice daily with food, or as recommended by a nutritionally-informed physician. Drink 6-8 cups of water throughout the day to avoid constipation. Do not exceed recommended daily dose.', N'Consult your physician before using this product if you are pregnant, nursing, have thyroid or kidney problems, or if using blood thinning medication. Store in a cool dry place.', 3, 9,N'Pending')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (10, N'Solumeve, Hydrolyzed Collagen Peptides, Unflavored Powder, 16 oz (1 lb) 460 g', N'40.jpg', N'Sôlumeve - A Healthy Look Starts From Within. Sôlumeve Radiant Beauty powder is the perfect addition to your daily beauty routine. This unflavored powder contains just Hydrolyzed Bovine Collagen that is enzymatically broken down into bioavailable peptides...an easy way to support healthy skin, hair & nails.*', N'Simply add 2 scoops (10 grams♦) to 6-8 fl oz of room temperature water or juice, once daily. Stir, shake, or blend. 10 grams per 2 scoops is an average. Individual scooping techniques may yield less than or or than 10 grams.', N'NOTICE: Use this product as a food supplement only. Do not use for weight reduction. Keep out of reach of children. Consult your healthcare practitioner before using this product, especially if you are pregnant, nursing, have existing medical conditions or are taking prescription medications. Sealed for your protection. Do not use if seal is missing or broken. This product is packaged and sold by weight, not by volume. Store in a cool, dry place.', 4, 10, N'Pending')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (11, N'Doctor''s Best, Collagen Types 1 and 3 with Peptan and Vitamin C, 1,000 mg, 180 Tablets', N'41.jpg', N'Doctor''s Best Collagen Types 1 and 3 contains hydrolyzed collagen protein (BSE-Free), which contributes to the growth and maintenance of healthy tissues. Collagen is the structural protein essential for the strength of bones and flexibility of joints, tendons, ligaments, hair, skin, nails, and other tissues throughout the body.', N'Suggested Adult Use: Take 3 tablets twice daily on an empty stomach, at least 30 minutes before meals, or as recommended by a nutritionally informed physician. To ensure optimal collagen absorption, avoid taking protein supplements within one hour of consumption.', N'Store in a cool dry place.', 4, 13, N'Pending')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (12, N'California Gold Nutrition, CollagenUP, Unflavored, 7.26 oz (206 g)', N'42.jpg', N'Collagen, hyaluronic acid, and vitamin C all contribute to the health and wellbeing of the musculoskeletal system. California Gold Nutrition CollagenUP contains all three of these ingredients to help support healthy hair, skin, nails, joints, and bones.* The unflavored powder can be quickly added to your favorite drink, providing a convenient way to add collagen to your diet.', N'Mix 1 scoop daily (5.16 grams♦) in 6-8 fl oz of room temperature water or juice and mix well (for best results, mix in a blender bottle). Drink on an empty stomach at least 1 hour before or 2 hours after meals, or as recommended by a healthcare professional. 5.16 grams per scoop is an average. Individual scooping technique may yield slightly less than or slightly more than 5.16 grams.', N'Keep out of reach of children. Consult with a physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time. Aroma, color, consistency and taste may vary. Color shift is normal and cannot be avoided. This product is packaged and sold by weight, not by volume. Settling of contents occurs over time.', 4, 14, N'Pending')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (13, N'Natural Factors, Zinc Chelate, 25 mg, 90 Tablets', N'43.jpg', N'Zinc is a trace mineral that is found virtually every cell of the body and is component in over 200 enzymes. Zinc is especially important in proper immune function, support for healthy cell growth and healthy skin, prostate and reproductive health as well as our sense of smell, taste and vision. Zinc chelates are made from rice to promote absorption.', N'1 tablet 1-2 times per day or as directed by a health professional.', N'As with any supplement, consult your health professional before use if you are pregnant, breastfeeding or trying to conceive, or if you are taking medication, have a medical condition or anticipate a surgery. Keep out of reach of children. Sealed for your protection. Do not use if seal is broken. For freshness, store in a cool, dry place.', 5, 1, N'Published')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (14, N'Natural Factors, Magnesium Citrate, 150 mg, 90 Capsules', N'44.jpg', N'Magnesium Citrate is in an easy-to-swallow capsule. The citrate form is extremely well absorbed and well tolerated by the body and magnesium is necessary for hundreds of enzyme reactions in the body and for normal heart function. It is necessary for protein synthesis, carbohydrate metabolism, proper muscle function, and helps to absorb calcium and potassium.', N'1 capsule 1-3 times per day or as directed by a health professional.', N'As with any supplement, consult your health professional before use if you are pregnant, breastfeeding, or trying to conceive, or if you are taking medication, have a medical condition, or anticipate a surgery. Keep out of the reach of children. Sealed for your protection. Do not use if seal is broken. For freshness, store in a cool, dry place.', 5, 2 ,N'Published')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (15, N'Jarrow Formulas, Zinc Balance, 100 Veggie Caps', N'45.jpg', N'Zinc Balance® combines Zinc L-Methionine and Copper Glycinate (15:1 ratio). Zinc L-Methionine allows zinc absorption with phytate and fiber in vegetables. Zinc supports immune function. Zinc Balance® includes copper because supplemental zinc depletes copper.', N'Take 1 capsule per day or every other day, preferably on an empty stomach or with a meal void of nuts, seeds, legumes, or grains to reduce phytic acid intake when taking zinc, or as directed by your qualified healthcare professional.', N'Store in a cool, dry place. Note: Consult a healthcare professional before using this product if you are trying to conceive, pregnant, or lactating, under the age of 18, or have a medical condition; if adverse reactions occur, discontinue use. Keep out of the reach of children.', 5, 3,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (16, N'California Gold Nutrition, Kid’s Multi Vitamin Gummies, No Gelatin, Mixed Berry and Fruit Flavor, 60 Gummies', N'46.jpg', N'Children have their own unique nutritional needs and a multi vitamin can help make up for shortcomings in a diet that may not always cover everything.* California Gold Nutrition Kid’s Multi Vitamin Gummies are gelatin and gluten-free and are a great tasting way to cover the basics.', N'Children 4 years of age or older, take 2 gummies daily, with or without food, or as directed by your qualified healthcare professional. Please ensure child chews gummies thoroughly.', N'Keep out of the reach of children. Consult with a licensed physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. For Children over 4 yrs. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time.', 6, 4,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (17, N'Super Nutrition, Perfect Family, Multivitamin with Super Greens & Herbs, Iron Free, 240 Tablets', N'47.jpg', N'Vitamins and minerals are a necessary part of any healthy diet, but getting the recommended daily amount from food alone can be a challenge. Super Nutrition Perfect Family Multivitamin can help you get the nutrients you need with numerous vitamins and minerals plus a blend of super greens and herbs.', N'Take 2 tablets twice daily with food.', N'For adults only. Keep out of reach of children. Not intended for pregnant/ nursing women. Consult with a qualified healthcare professional if you are taking medication or have a medical condition. This product contains Biotin which may interfere with some blood test results. Store in a cool, dry place.', 6, 5,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (18, N'California Gold Nutrition, Women’s Multi Vitamin, Mixed Berry and Fruit Flavor, 90 Gummies', N'48.jpg', N'Women have their own unique nutritional needs and a multi vitamin can help make up for shortcomings in a diet that may not always cover everything.* Women’s Multi Vitamin Gummies include folic acid for red blood cell formation, calcium and vegan friendly vitamin D2 to support bone health, zinc for immune support, pantothenic acid to support fat and carbohydrate metabolism and iodine for thyroid support.*', N'Take 3 gummies daily, with or without food, or as directed by your qualified healthcare professional.', N'Keep out of the reach of children. Consult with a licensed physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time. ', 6, 6,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (19, N'Lake Avenue Nutrition, Probiotic Minis, 2 Strains of Healthy Bacteria, 1 Billion CFU, 30 Mini Softgels', N'49.jpg', N'Lake Avenue Nutrition delivers quality and value at affordable everyday prices.', N'Take 1 softgel daily with or without food, or as recommended by a Healthcare Practitioner.  Do not chew or crush.', N'Keep out of reach of children. As with all dietary supplements, it is recommended to consult with a healthcare professional before adding something new to your health and wellness regime. Do not use if foil or pouch is punctured.  Store in a cool, dry place. Outer box does not come sealed.', 7, 7,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (20, N'California Gold Nutrition, LactoBif Probiotics, 5 Billion CFU, 10 Veggie Capsules', N'50.jpg', N'California Gold Nutrition Lactobif Probiotic formulas contain 8 active and clinically researched probiotic strains (5 Lactobacilli & 3 Bifidobacteria). Research suggests the probiotic strains within Lactobif Probiotic formulas are extremely resistant to low pH and gastrointestinal conditions (e.g. acid, bile, pepsin and pancreatin), as well as adhere to the intestinal cell lines.', N'Take 1 capsule daily, with or without food. Best when taken as directed by a qualified healthcare professional.', N'Keep out of reach of children. Consult with a licensed physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Individually Double-Foil Blister Sealed for quality and your protection. Do not use if blister pack material is punctured or missing.  Best stored at controlled room temperature 20ºC to 25ºC (68ºF to 77ºF). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time.', 7, 8,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status]) VALUES (21, N'Nature''s Bounty, Acidophilus Probiotic, 120 Tablets', N'51.jpg', N'Nearly 50 Years of Trusted Quality. At Nature''s Bounty, we are committed to your health. For nearly 50 years we have been making trusted product, backed by science, and made with only the purest ingredients...guaranteed. So you can get the most out of life every day.', N'For adults, take one (1) tablet daily with or without a meal.', N'If you are pregnant, nursing, taking any medications or have any medical condition, consult your doctor before use. Discontinue use and consult your doctor if any adverse reactions occur. Keep out of reach of children. Do not use if seal under cap is broken or missing. Guaranteed quality and CFU through expiration when continuously stored in the original packaging as directed. Store in a cool, dry place away from direct sunlight.', 7, 9,N'Published')
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId],[Status])  VALUES (22, N'California Gold Nutrition, Children''s Liquid Gold Vitamin C, USP Grade, Tart Orange Flavor, 4 fl oz (118 ml)', N'52.jpg', N'Vitamin C is an essential nutrient that plays many important roles within the body and is recognized for its ability to support the immune system.* Children’s Liquid Gold C is a great tasting way to add Vitamin C to a child’s diet and is made with USP Grade Vitamin C which refers to a quality standard set by the United States Pharmacopeia (USP).', N'For infants 6 months to 1 year: 1/4 teaspoon daily. For children 1 to 4 years: 1/2 teaspoon daily. For children 5 to 12 years: 1 teaspoon daily. Shake well before use. Best when mixed with your child''s favorite beverage or pure water.', N'Keep out of the reach of children. Consult with a licensed physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at Controlled Room Temperature 20°C to 25°C (68° to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity, an cause product degradation over time. Note: Slight color shift may occur over time. This is a normal occurrence and cannot be avoided.', 8, 10,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID], [MemberId], [Status]) VALUES (23, N'California Gold Nutrition, Gold C, Vitamin C, 1,000 mg, 60 Veggie Capsules', N'53.jpg', N'California Gold Nutrition Gold C™ Vitamin C is USP Grade L-Ascorbic Acid and is triple quality tested to ensure that it meets or exceeds strict quality standards.', N'Take 1 capsule daily, with or without food. Best when taken as directed by a qualified healthcare professional.', N'Keep out of the reach of children. Consult with a licensed physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time.', 8, 13,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (24, N'Lake Avenue Nutrition, Vitamin C, Quali-C, 1,000 mg, 60 Veggie Capsules', N'54.jpg', N'Lake Avenue Nutrition delivers quality and value at affordable everyday prices. Quali®-C is manufactured in Scotland and is recognized for its quality.', N'Take 1 capsule daily with or without food, or as recommended by a Healthcare Practitioner.', N'Keep out of reach of children. As with all dietary supplements, it is recommended to consult with a healthcare professional before adding something new to your health and wellness regimen. Sealed for your protection, do not use if seal is missing or broken. Store in a cool, dry place.', 8, 14,N'Published')
+
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (25, N'California Gold Nutrition, Vitamin D3, 125 mcg (5,000 IU), 360 Fish Gelatin Softgels', N'55.jpg', N'Vitamin D3 is the body’s preferred form of Vitamin D. Sometimes called the “sunshine vitamin” because it is produced in the skin in response to sunlight, Vitamin D is an essential vitamin for many metabolic processes. Vitamin D3 helps to regulate the absorption of calcium and phosphorus, and supports healthy immune system function.*', N'Adults take one softgel daily with food. Do not exceed one softgel daily or take with other dietary supplements containing Vitamin D.', N'Keep out of reach of children. This is a high potency Vitamin D product. Consult with a qualified healthcare professional prior to using this product if you are pregnant, nursing, taking prescription medications, have diagnosed medical conditions (e.g., hypercalcemia or kidney disease), or require higher Vitamin D intake. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time.', 9, 1,N'Published')
+
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID], [MemberId], [Status]) VALUES (26, N'Now Foods, Vitamin D-3, 125 mcg (5,000 IU), 120 Softgels', N'56.jpg', N'NOW Vitamin D-3 softgels supply this key vitamin in a highly-absorbable liquid softgel form. Vitamin D is normally obtained from the diet or produced by the skin from the ultraviolet energy of the sun. However, is it not abundant in food. As more people avoid sun exposure, Vitamin D supplementation becomes even more necessary to ensure that your body receives and adequate supply.', N'Take 1 softgel every 2 days with a fat-containing meal, or as directed by your healthcare practitioner.', N'Caution: For adults only. Do not exceed the recommended dose. Consult physician if pregnant/nursing, taking medications (especially topical psoriasis medications or thiazide diuretics), or have a medical condition (especially hypercalcemia, kidney disease, or hyperparathyroidism). Keep out of reach of children. Natural color variation may occur in this product. Store in a cool, dry place after opening.', 9, 2,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (27, N'Doctor''s Best, Vitamin D3, 125 mcg (5,000 IU), 180 Softgels', N'57.jpg', N'Doctor''s Best Vitamin D3 provides D3 (as cholecalciferol) needed for the body to regulate phosphorus and calcium levels for healthy bones, teeth and heart. Vitamin D3 is produced in the skin by absorbing the sun''s UV rays and is obtained from food in limited amounts. Sun protection and climate factors may influence low Vitamin D3 levels. Vitamin D3 is beneficial for immune, cardiovascular, bone density and structure, and cellular function. It plays a role in most organs and systems of the body and influences the chemical messengers of the immune system.', N'Adult use: Take 1 softgel daily with food, or as recommended by a nutritionally-informed physician.', N'Store in a cool dry place.', 9, 3,N'Published')
+
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (28, N'Natural Factors, Mixed Vitamin E, 200 IU, 90 Softgels', N'58.jpg', N'Vitamin E 134 mg is a high potency, naturally sourced vitamin E in the form of d-alpha tocopherol with added naturally sourced gamma-, delta-, and beta-tocopherols. Vitamin E is an antioxidant that protects cell membranes and helps prevent free radical damage to the body. It supports the cardiovascular system and general health. Daily supplementation of vitamin E is particularly important to maintain healthy cell growth and for those with active lifestyles.*', N'1 softgel 1-5 times per day or as directed by a health professional.', N'As with any supplement, consult your health professional before use if you are pregnant, breastfeeding or trying to conceive, or if you are taking medication, have a medical condition or anticipate a surgery. Keep out of reach of children. Sealed for your protection. Do not use if seal is broken. For freshness, store in a cool, dry place.', 10, 4,N'Published')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (29, N'Natural Factors, Whole Earth & Sea, Sunflower Vitamin E, 268 mg, 90 Softgels', N'59.jpg', N'Our natural vitamin E is derived from soy-free, non-GMO sunflower seed oil and is the perfect choice for anyone looking to avoid soy based vitamin E supplements. Naturall-e is identity preserved, meaning the unique traits and quality characteristics of the sunflowers are protected from the moment the seeds are planted until the crop is harvested, processed, and shipped. This includes preventing cross contamination by GMOs, and maintaining consistent levels of natural vitamin E. Vitamin E is an important antioxidant and the body''s primary defense against free radical (oxidative) cell damage.', N'1 softgel per day or as directed by a health professional.', N'As with any supplement, consult your health professional before use if you are pregnant, breastfeeding, or trying to conceive, or if you are taking medication, have a medical condition, or anticipate a surgery. Keep out of the reach of children. Sealed for your protection. Do not use if seal is broken. For freshness, store in a cool, dry place.', 10, 5,N'Published')
+
+
+INSERT INTO [dbo].[Supplements] ([Id], [Name], [Picture], [Description], [Suggested Use], [Warnings], [SupplementTypeID],[MemberId], [Status]) VALUES (30, N'California Gold Nutrition, Sunflower Vitamin E, with Mixed Tocopherols, 400 IU, 90 Veggie Softgels', N'60.jpg', N'Naturally-occurring vitamin E exists in multiple forms, but one of the best sources of this important vitamin is sunflower seeds. California Gold Nutrition Sunflower Vitamin E contains powerful vitamin E molecules derived from sunflowers. This dietary supplement can help provide protection against free radical damage.*', N'Take 1 softgel daily, with food. Best when taken as directed by a qualified healthcare professional.', N'Keep out of reach of children. Pregnant or lactating women, the chronically ill, elderly, individuals under the age of 18, those taking prescription medications (e.g., blood thinners) as well as those with a physician-diagnosed medical condition should consult with a physician, pharmacist, naturopath or other qualified healthcare professional prior to taking dietary supplements. Sealed for your protection. Do not use if seal is missing or broken. Best stored at controlled room temperature 20°C to 25°C (68°F to 77°F). Improper storage conditions, such as extended exposure to direct sunlight, high heat & humidity can cause product degradation over time.', 10, 6,N'Published')
+
+SET IDENTITY_INSERT [dbo].[Supplements] OFF
+

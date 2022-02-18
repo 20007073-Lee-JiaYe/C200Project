@@ -238,26 +238,26 @@ namespace C200_Official.Controllers
 
                 //MLNicole to check for non - health articles
                 //if (predict.Equals("business") || predict.Equals("tech") || predict.Equals("politics") || predict.Equals("sport") || predict.Equals("entertainment"))
-                //    {
-                //        article.AiFlag = "Yes";
-                //        article.Status = "Pending";
-                //        _context.Add(article);
-                //        await _context.SaveChangesAsync();
+                //{
+                //    article.AiFlag = "Yes";
+                //    article.Status = "Pending";
+                //    _context.Add(article);
+                //    await _context.SaveChangesAsync();
 
-                //        TempData["Message"] = "Article is not of health related type.";
-                //        TempData["MsgType"] = "warning";
-                //        return RedirectToAction("Index");
-                //    }
-                //    else
-                //    {
-                //        article.AiFlag = "No";
-                //        _context.Add(article);
-                //        await _context.SaveChangesAsync();
+                //    TempData["Message"] = "Article is not of health related type.";
+                //    TempData["MsgType"] = "warning";
+                //    return RedirectToAction("Index");
+                //}
+                //else
+                //{
+                //    article.AiFlag = "No";
+                //    _context.Add(article);
+                //    await _context.SaveChangesAsync();
 
-                //        TempData["Message"] = "Article sucessfully posted.";
-                //        TempData["MsgType"] = "success";
-                //        return RedirectToAction("Index");
-                //    }
+                //    TempData["Message"] = "Article sucessfully posted.";
+                //    TempData["MsgType"] = "success";
+                //    return RedirectToAction("Index");
+                //}
 
                 //JANNICE
                 article.AiFlag = "No";
