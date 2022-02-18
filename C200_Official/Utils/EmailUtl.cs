@@ -16,8 +16,8 @@ public static class EmailUtl
    private static string EMAIL_PW = config.GetValue<String>("LivePW");
 
    // Using Microsoft's LIVE
-   private static string HOST = "smtp.office365.com";
-   private static int PORT = 587;
+   private static string HOST = config.GetValue<String>("SMTPServer");
+   private static int PORT = config.GetValue<int>("SMTPPort");
 
    public static bool SendEmail(string recipient,
                                 string subject, string msg,
