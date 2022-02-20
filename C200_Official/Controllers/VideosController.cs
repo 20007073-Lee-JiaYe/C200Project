@@ -186,7 +186,7 @@ namespace C200_Official.Controllers
 
                 TempData["Message"] = "Video link sucessfully uploaded.";
                 TempData["MsgType"] = "success";
-                return RedirectToAction("IndexMember"); // changed to INDEXMEMBER (ange edit)
+                return RedirectToAction("IndexMember");
 
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", video.CategoryId);
