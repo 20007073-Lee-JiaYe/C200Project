@@ -156,13 +156,13 @@ namespace C200_Official.Controllers
             {
                 _context.Programmes.Remove(program);
                 _context.SaveChanges();
-                TempData["Msg"] = "Programme information being deleted successfully.";
+                TempData["Message"] = "Programme information being deleted successfully.";
                 TempData["MsgType"] = "success";
                 return RedirectToAction("Index");
             }
             else
             {
-                TempData["Msg"] = "Programme ID not found!";
+                TempData["Message"] = "Programme ID not found!";
                 TempData["MsgType"] = "danger";
                 return RedirectToAction("Index");
             }

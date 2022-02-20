@@ -118,25 +118,27 @@ namespace C200_Official.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Picture,Description,SuggestedUse,Warnings," +
-            "SupplementTypeId,MemberId,Status")] Supplement supplement, IFormFile image)
+        public async Task<IActionResult> Create([Bind("Id,Name,Picture,Description,SuggestedUse,Warnings ,SupplementTypeId,MemberId,Status")] Supplement supplement, IFormFile image)
         {
             if (ModelState.IsValid)
             {
+                //IFormCollection form = HttpContext.Request.Form;
+                //string supplementType = form["SupplementTypeId"].ToString().Trim();
 
                 // Upload photo
                 string fname = DoPhotoUpload(image);
-
                 supplement.MemberId = Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
                 supplement.Picture = fname;
                 _context.Add(supplement);
                 await _context.SaveChangesAsync();
+
+
                 TempData["Message"] = "New Supplement Information sucessfully created.";
                 TempData["MsgType"] = "success";
-                return RedirectToAction("ApprovalOfSupplements");
+                return RedirectToAction("IndexMember"); 
             }
             ViewData["MemberId"] = new SelectList(_context.Members, "Id", "Username", supplement.MemberId);
-            ViewData["SupplementTypeId"] = new SelectList(_context.SupplementTypes, "Id", "Name", supplement.SupplementType);
+            ViewData["SupplementTypeId"] = new SelectList(_context.SupplementTypes, "Id", "Name", supplement.SupplementTypeId);
             return View(supplement);
         }
 
@@ -214,7 +216,7 @@ namespace C200_Official.Controllers
                 var suppType = _context.Supplements.Include(x => x.SupplementType).First(x => x.Id == id);
                 _context.Supplements.Remove(suppType);
                 _context.SaveChanges();
-                TempData["Msg"] = "Supplement post being deleted successfully.";
+                TempData["Message"] = "Supplement post being deleted successfully.";
                 TempData["MsgType"] = "success";
                 return RedirectToAction("ApprovalOfSupplements");
             }
