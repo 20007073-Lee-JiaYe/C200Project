@@ -133,7 +133,7 @@ namespace C200_Official.Controllers
                 await _context.SaveChangesAsync();
                 TempData["Message"] = "New Supplement Information sucessfully created.";
                 TempData["MsgType"] = "success";
-                return RedirectToAction("ApprovalOfSupplements");
+                return RedirectToAction("IndexMember");
             }
             ViewData["MemberId"] = new SelectList(_context.Members, "Id", "Username", supplement.MemberId);
             ViewData["SupplementTypeId"] = new SelectList(_context.SupplementTypes, "Id", "Name", supplement.SupplementType);
